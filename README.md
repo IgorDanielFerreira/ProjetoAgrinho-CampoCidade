@@ -47,7 +47,7 @@ Aqui você pode acompanhar as principais mudanças e melhorias em cada versão d
 ### Versão 1.0.0 - 16 de Junho de 2025
 
 - **Lançamento Inicial:** Versão inicial do site "Harmonia Natural: Conexão Campo & Cidade".
-- **Funcionalidades:** Implementação das seções "Hero", "Campo", "Cidade", "Conexão", "Comunidade" e "Contato".
+- **Funcionalidades:** Implementação das seções "Hero", "Campo", "Cidade", "Conexão" e "Contato".
 - **Design:** Layout responsivo básico com tema verde e fontes definidas.
 - **Animações:** Introdução e efeitos de rolagem no cabeçalho e na seção de boas-vindas.
 
