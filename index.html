@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonia Natural - Conexão Campo & Cidade</title>
+    <!-- Link para o seu arquivo de estilos customizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho Fixo que muda ao rolar -->
+    <header id="main-header">
+        <div class="logo">
+            <a href="#hero">Harmonia Natural</a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#secao-campo">Campo</a></li>
+                <li><a href="#secao-cidade">Cidade</a></li>
+                <li><a href="#secao-conexao">A Conexão</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <!-- Botão de menu hambúrguer oculto no HTML, visível apenas em mobile via CSS -->
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </label>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Festejando a Conexão</h1>
+            <p>Descubra a beleza e a sinergia entre o ambiente rural e urbano.</p>
+            <a href="#secao-campo" class="hero-button">Explorar</a>
+        </div>
+        <div class="hero-animation-overlay"></div>
+    </section>
+
+    <!-- Seção Campo: Layout complexo com Grid e efeitos em imagens -->
+    <section id="secao-campo" class="content-section campo-section">
+        <h2 class="section-title">A Alma do Campo</h2>
+        <div class="campo-grid">
+            <div class="campo-item campo-main-image">
+                <img src="assets/images/campo-main.png" alt="Campo Verdejante com Trator">
+                <div class="image-overlay">
+                    <h3>Abundância da Terra</h3>
+                    <p>O sustento que vem do solo.</p>
+                </div>
+            </div>
+            <div class="campo-item campo-text-block">
+                <p>O campo é a base de tudo, o berço da vida e da nossa alimentação. É onde a natureza mostra sua força e generosidade, provendo os recursos essenciais para a existência humana. Da agricultura familiar à produção em larga escala, a vida rural pulsa em harmonia com os ciclos naturais.</p>
+            </div>
+            <div class="campo-item campo-sub-image image-effect-zoom">
+                <img src="assets/images/campo-cultivo.png" alt="Mãos Cuidando de um Cultivo">
+                <div class="image-caption">Cultivo Sustentável</div>
+            </div>
+            <div class="campo-item campo-sub-image image-effect-rotate">
+                <img src="assets/images/campo-colheita.png" alt="Colheita de Frutas no Campo">
+                <div class="image-caption">Trabalho e Dedicação</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Cidade: Layout complexo e elementos interativos (pure CSS) -->
+    <section id="secao-cidade" class="content-section cidade-section">
+        <h2 class="section-title">A Energia da Cidade</h2>
+        <div class="cidade-layout">
+            <div class="cidade-text-block">
+                <p>A cidade, por sua vez, é o centro da inovação, cultura e oportunidades. Com sua dinâmica acelerada, oferece uma diversidade de experiências e serviços, sendo o palco para o desenvolvimento de ideias e para a efervescência social.</p>
+            </div>
+            <div class="cidade-gallery">
+                <input type="radio" name="cidade-nav" id="img1" checked>
+                <input type="radio" name="cidade-nav" id="img2">
+                <input type="radio" name="cidade-nav" id="img3">
+
+                <div class="gallery-images">
+                    <img src="assets/images/cidade-luzes.png" alt="Horizonte da Cidade à Noite" class="gallery-img img1">
+                    <img src="assets/images/cidade-verde.png" alt="Parque Urbano com Pessoas" class="gallery-img img2">
+                    <img src="assets/images/cidade-cultura.png" alt="Edifícios Modernos e Arte Urbana" class="gallery-img img3">
+                </div>
+                <div class="gallery-nav">
+                    <label for="img1"></label>
+                    <label for="img2"></label>
+                    <label for="img3"></label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Conexão: Demonstração da ponte entre campo e cidade -->
+    <section id="secao-conexao" class="content-section conexao-section">
+        <h2 class="section-title">Pontes que Unem</h2>
+        <div class="conexao-info">
+            <div class="conexao-card">
+                <div class="card-icon">
+                    <img src="assets/icons/agricultura-familiar.svg" alt="Ícone Agricultura Familiar">
+                </div>
+                <h3>Agricultura Familiar</h3>
+                <p>A produção local alimenta a cidade, gerando renda e fortalecendo comunidades.</p>
+            </div>
+            <div class="conexao-card">
+                <div class="card-icon">
+                    <img src="assets/icons/ecoturismo.svg" alt="Ícone Ecoturismo">
+                </div>
+                <h3>Ecoturismo Rural</h3>
+                <p>Experiências no campo que promovem o lazer e a conscientização ambiental para urbanos.</p>
+            </div>
+            <div class="conexao-card">
+                <div class="card-icon">
+                    <img src="assets/icons/inovacao.svg" alt="Ícone Inovação">
+                </div>
+                <h3>Inovação Sustentável</h3>
+                <p>Tecnologia urbana a serviço do campo, otimizando recursos e reduzindo impactos.</p>
+            </div>
+        </div>
+        <div class="connection-animation">
+            <span class="dot dot-1"></span>
+            <span class="dot dot-2"></span>
+            <span class="dot dot-3"></span>
+            <span class="dot dot-4"></span>
+            <span class="dot dot-5"></span>
+        </div>
+    </section>
+
+    <!-- Seção de Contato/Rodapé -->
+    <footer id="contato" class="contact-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Entre em Contato</h3>
+                <p>Envie-nos uma mensagem sobre sua conexão com o campo e a cidade.</p>
+                <address>
+                    E-mail: <a href="mailto:contato@harmonianatural.com">contato@harmonianatural.com</a><br>
+                    Telefone: (XX) XXXX-XXXX
+                </address>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Seu Nome Completo" required>
+                <input type="email" placeholder="Seu Melhor Email" required>
+                <textarea placeholder="Sua Mensagem..." rows="5" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Harmonia Natural. Todos os direitos reservados. Projeto desenvolvido para o Concurso Agrinho.</p>
+        </div>
+    </footer>
+
+    <!-- Botão de Voltar ao Início -->
+    <a href="#hero" class="back-to-top-button">↑</a>
+
+</body>
+</html>
