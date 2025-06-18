@@ -15,9 +15,10 @@ O principal objetivo do site é:
 
 O site é dividido nas seguintes seções, que abordam diferentes aspectos da conexão campo-cidade:
 
-- **A Alma do Campo:** Explora a importância do meio rural, desde a agricultura familiar até as revoluções tecnológicas, como a Agricultura de Precisão.
+- **A Alma do Campo:** Explora a importância do meio rural, desde a agricultura familiar até as revoluções tecnológicas, como a Agricultura de Precisão e o Robô Açaí.
 - **A Energia da Cidade:** Apresenta a cidade como centro de inovação, cultura e oportunidades, destacando seu dinamismo e as demandas que impulsionam o campo.
 - **Pontes que Unem:** Demonstra as diversas formas de conexão e colaboração entre campo e cidade, incluindo a agricultura familiar, o ecoturismo rural e a inovação sustentável.
+- **Comunidade em Ação:** Foca em iniciativas concretas de sucesso, como as hortas urbanas e o papel da USP na vanguarda da agricultura urbana, incluindo os benefícios simbólicos e afetivos dessas práticas.
 - **Contato:** Seção para interação com os visitantes.
 
 ## Tecnologias Utilizadas
@@ -44,18 +45,65 @@ Este site foi desenvolvido para o **Concurso Agrinho**, com o tema "Festejando a
 
 Aqui você pode acompanhar as principais mudanças e melhorias em cada versão do projeto.
 
+### Versão 1.1.5 - 18 de Junho de 2025
+
+-   **Melhoria:** Aumento e centralização do texto na seção "Agricultura de Precisão e o Robô Açaí" com informações adicionais para maior clareza.
+-   **Melhoria:** Ajustes finos nos estilos CSS para garantir que os títulos se adaptem melhor a telas mobile, evitando que "escapem" dos contêineres.
+-   **Melhoria:** Criação de uma nova seção "Sobre o Projeto & Recursos Visuais" com detalhes sobre o autor, instituição e propósito do projeto para o Concurso Agrinho 2025.
+-   **Melhoria:** Detalhamento das ferramentas visuais utilizadas (Canva, GIMP) e inclusão de uma galeria com *todos os placeholders de imagens* do site para demonstração.
+-   **Melhoria:** Ajuste da cor do texto `strong` nas informações do autor/projeto para um verde mais escuro, melhorando a visibilidade.
+-   **Melhoria:** Consolidação do texto geral do site para ser mais direto ao ponto e otimizado para leitura rápida.
+-   **Melhoria:** Atualização do texto do rodapé para refletir que o projeto foi desenvolvido por um estudante do Ensino Médio para o Concurso Agrinho 2025.
+
 ### Versão 1.0.0 - 16 de Junho de 2025
 
-- **Lançamento Inicial:** Versão inicial do site "Harmonia Natural: Conexão Campo & Cidade".
-- **Funcionalidades:** Implementação das seções "Hero", "Campo", "Cidade", "Conexão" e "Contato".
-- **Design:** Layout responsivo básico com tema verde e fontes definidas.
-- **Animações:** Introdução e efeitos de rolagem no cabeçalho e na seção de boas-vindas.
+-   **Lançamento Inicial:** Versão inicial do site "Harmonia Natural: Conexão Campo & Cidade".
+-   **Funcionalidades:** Implementação das seções "Hero", "Campo", "Cidade", "Conexão", "Comunidade" e "Contato".
+-   **Design:** Layout responsivo básico com tema verde e fontes definidas.
+-   **Animações:** Introdução e efeitos de rolagem no cabeçalho e na seção de boas-vindas.
+
+## Sobre o Projeto e Recursos Visuais
+
+Este projeto foi desenvolvido por um **estudante do Ensino Médio** para o **Concurso Agrinho 2025**, com o tema "Festejando a conexão campo cidade". O intuito é demonstrar a harmonia e interdependência entre os ambientes rural e urbano através de um site interativo e visualmente atraente.
+
+### Informações do Projeto
+
+-   **Autor:** Igor Daniel Ferreira
+-   **Instituição:** CEAM | Colégio Estadual Altair Mongruel
+-   **Concurso:** Agrinho 2025 - Tema "Festejando a conexão campo cidade"
+-   **Ano:** 2025
+
+### Ferramentas Visuais Utilizadas
+
+Todas as imagens e elementos visuais no site são **placeholders** (elementos temporários para demonstração) criados para ilustrar o conteúdo visual que seria desenvolvido. As ferramentas utilizadas para a criação e edição desses elementos foram:
+
+-   **Canva:** Plataforma intuitiva para design gráfico e composição de elementos.
+-   **GIMP:** Software de manipulação de imagens gratuito e de código aberto para ajustes detalhados.
+-   **Fotor:** Ferramenta online para retoque rápido, filtros e aprimoramento de imagens.
+
+### Galeria de Imagens do Projeto (Placeholders)
+
+Apresentamos a seguir uma galeria com exemplos das imagens placeholder utilizadas em todo o site. Elas demonstram o tipo de arte e design que foi pensado para o projeto.
+
+-   [Image of Fundo Hero](https://placehold.co/1920x1080/003600/94b994?text=[Fundo+Hero])
+-   [Image of Campo Principal](https://placehold.co/1200x600/6A8E6A/F9FAF4?text=[Campo+Principal])
+-   [Image of Cultivo Sustentável](https://placehold.co/600x400/94b994/003600?text=[Cultivo+Sustentável])
+-   [Image of Colheita](https://placehold.co/600x400/003600/94b994?text=[Colheita])
+-   [Image of Cidade Luzes](https://placehold.co/800x600/2C3E50/ECF0F1?text=[Cidade+Luzes])
+-   [Image of Cidade Verde](https://placehold.co/800x600/27AE60/FFFFFF?text=[Cidade+Verde])
+-   [Image of Cidade Cultura](https://placehold.co/800x600/8E44AD/FFFFFF?text=[Cidade+Cultura])
+
 
 ## Contribuições e Melhorias Futuras
 
 Ideias para futuras melhorias incluem:
 
-- Adicionar mais exemplos de iniciativas de conexão campo-cidade em outras regiões.
-- Adicionar mais ideias da agricultura atual, inovações etc.
-- Galerias de imagens mais dinâmicas.
-- Otimizar a performance e acessibilidade.s
+-   Adicionar mais exemplos de iniciativas de conexão campo-cidade em outras regiões.
+-   Adicionar mais ideias da agricultura atual, inovações etc.
+-   Galerias de imagens mais dinâmicas com mais fotos do seu projeto.
+-   Otimizar a performance e acessibilidade.
+-   Integrar conteúdo multimídia (vídeos, áudios) para enriquecer a experiência.
+-   Expandir a seção "Comunidade em Ação" com estudos de caso detalhados.
+
+---
+*Desenvolvido com paixão por um estudante do Ensino Médio para o Concurso Agrinho 2025.*
