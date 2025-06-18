@@ -1,35 +1,37 @@
 /* --- Importação de Fontes --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
 
 /* --- Variáveis CSS (Paleta de Cores e Fontes) --- */
 :root {
     --fonte-principal: 'Inter', sans-serif;
     --fonte-titulo: 'Teko', sans-serif;
+    --fonte-destaque: 'Oswald', sans-serif;
 
     --cor-primaria: #003600;    /* Verde Escuro - Main accent */
     --cor-secundaria: #94b994; /* Verde Claro - Secondary accent */
-    --cor-clara: #EEEEEE;      /* Cinza Claro - Backgrounds */
+    --cor-terciaria: #6A8E6A;  /* Um tom de verde intermediário */
+    --cor-clara: #F9FAF4;      /* Off-white suave - Base mais natural */
     --cor-branca: #FFFFFF;     /* Branco - Text and elements */
-    --cor-shadow: rgba(0, 0, 0, 0.2); /* Sombra genérica */
+    --cor-shadow: rgba(0, 0, 0, 0.25); /* Sombra genérica, um pouco mais escura */
+    --cor-overlay-dark: rgba(0, 54, 0, 0.7); /* Overlay mais escuro para contraste */
 }
 
 /* --- Reset Básico e Estilos Globais --- */
-/* Aplica box-sizing a todos os elementos para cálculo de layout mais intuitivo */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    transition: all 0.3s ease-in-out; /* Transição global para a maioria das propriedades */
+    transition: all 0.4s ease-in-out;
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave ao navegar por âncoras */
-    /* Define o tipo de scroll-snap para rolagem guiada por seções */
-    scroll-snap-type: y mandatory; /* Força a rolagem a parar nas seções */
-    overflow-y: scroll; /* Garante que a barra de rolagem esteja sempre visível */
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 body {
@@ -37,13 +39,13 @@ body {
     color: var(--cor-primaria);
     background-color: var(--cor-clara);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita rolagem horizontal */
+    overflow-x: hidden;
 }
 
 /* --- Estilização da Barra de Rolagem (WebKit - Chrome, Safari) --- */
 ::-webkit-scrollbar {
     width: 12px;
-    height: 12px; /* Para scroll horizontal */
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -67,26 +69,171 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--cor-primaria);
     line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
-h1 { font-size: 3.5em; } /* Títulos maiores para hero */
-h2 { font-size: 2.8em; } /* Títulos de seção */
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.8em; }
 h3 { font-size: 1.8em; }
 p { font-size: 1.1em; margin-bottom: 1em; }
-a { color: inherit; } /* Links herdam a cor do pai por padrão */
+a { color: inherit; }
 
-/* --- Classes Utilitárias (similar ao Tailwind, mas custom) --- */
 .section-title {
     text-align: center;
     margin-bottom: 2em;
     padding-bottom: 0.5em;
     border-bottom: 3px solid var(--cor-secundaria);
-    display: inline-block; /* Para o border-bottom se ajustar ao texto */
+    display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
     color: var(--cor-primaria);
     font-size: 3.2em;
     text-shadow: 2px 2px 4px var(--cor-shadow);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skip-intro-checkbox {
+    display: none;
+}
+
+.skip-intro-checkbox:checked ~ #intro-animation-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100vh);
+    transition: opacity 1.2s ease-out, visibility 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.intro-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+    animation: gradientShift 10s infinite alternate ease-in-out;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.intro-content {
+    text-align: center;
+    color: var(--cor-branca);
+    opacity: 0;
+    animation: fadeInScale 1.5s forwards 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.7));
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.intro-title {
+    font-size: 8em;
+    color: var(--cor-branca);
+    letter-spacing: 8px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 0 30px var(--cor-secundaria), 0 0 10px var(--cor-branca);
+    animation: slideInText 1.5s forwards 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(-80px);
+    font-family: var(--fonte-destaque);
+}
+
+@keyframes slideInText {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.intro-subtitle {
+    font-family: var(--fonte-principal);
+    font-size: 2.2em;
+    color: var(--cor-clara);
+    margin-bottom: 1em;
+    opacity: 0;
+    animation: fadeIn 1.2s forwards 1.8s;
+    letter-spacing: 1px;
+}
+
+.intro-line {
+    width: 0;
+    height: 5px;
+    background-color: var(--cor-branca);
+    margin: 1.8em auto;
+    border-radius: 3px;
+    opacity: 0;
+    animation: expandLine 1.5s forwards 2.3s, fadeIn 1.5s forwards 2.3s;
+}
+
+@keyframes expandLine {
+    to {
+        width: 300px;
+        opacity: 1;
+    }
+}
+
+.intro-message {
+    font-family: var(--fonte-principal);
+    font-size: 1.4em;
+    color: var(--cor-clara);
+    opacity: 0;
+    animation: fadeIn 1.2s forwards 2.8s;
+    font-style: italic;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.skip-intro-button {
+    position: absolute;
+    bottom: 50px;
+    padding: 18px 35px;
+    background: linear-gradient(to right, var(--cor-branca), var(--cor-clara));
+    color: var(--cor-primaria);
+    font-family: var(--fonte-principal);
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 10000;
+    opacity: 0;
+    animation: fadeInButton 1s forwards 3.5s;
+    border: 2px solid var(--cor-secundaria);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeInButton {
+    to { opacity: 1; }
+}
+
+.skip-intro-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(to right, var(--cor-secundaria), var(--cor-primaria));
+    color: var(--cor-branca);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    border-color: var(--cor-branca);
 }
 
 /* --- Cabeçalho (Header) --- */
@@ -103,13 +250,11 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     align-items: center;
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Animação do cabeçalho baseada na rolagem */
     animation: headerShrink 1s linear forwards;
     animation-timeline: scroll();
-    animation-range: 0 200px; /* Reduz nos primeiros 200px de rolagem */
+    animation-range: 0 200px;
 }
 
-/* Animação do cabeçalho: encolhe e muda cor no scroll */
 @keyframes headerShrink {
     to {
         padding: 0.5rem 2rem;
@@ -118,13 +263,28 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     }
 }
 
+#main-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
 #main-header .logo a {
     font-family: var(--fonte-titulo);
     font-size: 2.2em;
     letter-spacing: 2px;
     color: var(--cor-branca);
-    /* A cor do logo muda na animação do cabeçalho */
     animation: logoColorChange 1s linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 200px;
+}
+
+/* Estilo para o ícone do cabeçalho */
+.header-logo-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--cor-branca);
+    transition: color 1s linear forwards;
     animation-timeline: scroll();
     animation-range: 0 200px;
 }
@@ -133,6 +293,30 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     to {
         color: var(--cor-primaria);
     }
+}
+.header-logo-icon {
+    animation: headerIconColorChange 1s linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 200px;
+}
+@keyframes headerIconColorChange {
+    to {
+        color: var(--cor-primaria);
+    }
+}
+
+
+/* Menu Desktop (Padrão para telas grandes) */
+.main-nav {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    max-height: none;
+    position: static;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+    flex-direction: row;
 }
 
 .main-nav .nav-links {
@@ -146,7 +330,6 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     color: var(--cor-branca);
     position: relative;
     padding: 0.5em 0;
-    /* A cor do link muda na animação do cabeçalho */
     animation: linkColorChange 1s linear forwards;
     animation-timeline: scroll();
     animation-range: 0 200px;
@@ -158,7 +341,6 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     }
 }
 
-/* Efeito de sublinhado animado nos links */
 .main-nav .nav-links a::after {
     content: '';
     position: absolute;
@@ -176,10 +358,11 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 
 /* --- Menu Hamburguer (Mobile) - Pure CSS --- */
 .nav-toggle-label {
-    display: none; /* Esconde por padrão */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 6px;
+    z-index: 101;
 }
 
 .hamburger {
@@ -188,7 +371,6 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     background-color: var(--cor-branca);
     border-radius: 5px;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    /* A cor do hamburguer muda na animação do cabeçalho */
     animation: hamburgerColorChange 1s linear forwards;
     animation-timeline: scroll();
     animation-range: 0 200px;
@@ -201,26 +383,17 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 }
 
 .nav-toggle-input {
-    display: none; /* Esconde o input checkbox */
+    display: none;
 }
 
-/* Transforma o ícone do hambúrguer em X */
-.nav-toggle-input:checked ~ .nav-toggle-label .hamburger:nth-child(1) {
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
-.nav-toggle-input:checked ~ .nav-toggle-label .hamburger:nth-child(2) {
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(2) {
     opacity: 0;
 }
-.nav-toggle-input:checked ~ .nav-toggle-label .hamburger:nth-child(3) {
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Abre o menu em mobile */
-.nav-toggle-input:checked ~ .main-nav {
-    display: flex;
-    max-height: 300px; /* Limite de altura para animação */
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* --- Seções de Conteúdo --- */
@@ -231,10 +404,10 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     border-radius: 15px;
     margin-bottom: 3rem;
     box-shadow: 0 8px 20px var(--cor-shadow);
-    scroll-snap-align: start; /* Para scroll-snap-type */
-    background-color: var(--cor-branca); /* Fundo padrão para seções */
-    position: relative; /* Para posicionamento de elementos internos */
-    overflow: hidden; /* Esconde qualquer transbordamento */
+    scroll-snap-align: start;
+    background-color: var(--cor-branca);
+    position: relative;
+    overflow: hidden;
 }
 
 /* --- Hero Section --- */
@@ -244,111 +417,104 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('assets/images/hero-bg.png'); /* Imagem de fundo para o hero */
+    background-image:
+        linear-gradient(to bottom, var(--cor-overlay-dark) 0%, rgba(0, 54, 0, 0.4) 100%),
+        url('assets/images/hero-bg.png');
     background-size: cover;
-    background-position: center bottom; /* Ajuste para parallax */
+    background-position: center bottom;
     color: var(--cor-branca);
-    /* Efeito Parallax de fundo CSS */
     background-attachment: fixed;
-    margin-bottom: 0; /* Hero não tem margem inferior */
-    box-shadow: none; /* Hero não tem sombra */
-    border-radius: 0; /* Hero não tem border radius */
-    position: relative; /* Para o overlay */
-}
-
-.hero-section::before { /* Overlay escuro para melhorar contraste do texto */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente para o texto */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* Animação de entrada do texto */
+    padding: 3.5rem 4rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
     animation: fadeInSlideUp 1.5s ease-out forwards;
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Começa um pouco abaixo */
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @keyframes fadeInSlideUp {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 .hero-content h1 {
-    font-size: 4.5em;
+    font-size: 5.5em;
     color: var(--cor-branca);
-    margin-bottom: 0.5em;
-    text-shadow: 3px 3px 6px var(--cor-primaria);
+    margin-bottom: 0.3em;
+    text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 5px var(--cor-secundaria);
+    font-family: var(--fonte-destaque);
+    letter-spacing: 3px;
+    animation: textGlow 2s infinite alternate ease-in-out;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 5px var(--cor-secundaria); }
+    to { text-shadow: 0 0 25px rgba(0,0,0,1), 0 0 10px var(--cor-branca); }
 }
 
 .hero-content p {
-    font-size: 1.5em;
-    margin-bottom: 1.5em;
+    font-size: 1.8em;
+    margin-bottom: 2em;
     color: var(--cor-clara);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 1.2s forwards 0.5s;
 }
 
 .hero-button {
     display: inline-block;
-    background-color: var(--cor-secundaria);
+    background: linear-gradient(45deg, var(--cor-secundaria), var(--cor-terciaria));
     color: var(--cor-primaria);
-    padding: 0.8em 2em;
+    padding: 1em 3em;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.2em;
-    border: 2px solid var(--cor-secundaria);
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-size: 1.4em;
+    border: 2px solid var(--cor-branca);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
 }
 
 .hero-button:hover {
-    background-color: var(--cor-primaria);
+    background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
     color: var(--cor-branca);
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.05);
     border-color: var(--cor-branca);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* Animação do Overlay do Hero (Exemplo de elemento decorativo) */
 .hero-animation-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to top, var(--cor-clara), transparent);
-    z-index: 0;
-    animation: waveEffect 5s infinite alternate ease-in-out;
-}
-
-@keyframes waveEffect {
-    from {
-        transform: translateY(0) scaleX(1);
-    }
-    to {
-        transform: translateY(-10px) scaleX(1.05);
-    }
+    display: none;
 }
 
 /* --- Seção Campo --- */
 .campo-section {
     background-color: var(--cor-clara);
     text-align: center;
+    padding-top: 8rem;
 }
 
 .campo-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas por padrão */
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 2rem;
     padding: 2rem;
@@ -359,7 +525,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 
 .campo-item {
     border-radius: 10px;
-    overflow: hidden; /* Importante para bordas arredondadas e efeitos de imagem */
+    overflow: hidden;
     position: relative;
     box-shadow: 0 4px 10px var(--cor-shadow);
 }
@@ -373,11 +539,11 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 }
 
 .campo-main-image {
-    grid-column: 1 / 3; /* Ocupa as duas colunas */
+    grid-column: 1 / 3;
     height: 400px;
     display: flex;
-    align-items: flex-end; /* Alinha o overlay na parte inferior */
-    background-color: var(--cor-secundaria); /* Fallback */
+    align-items: flex-end;
+    background-color: var(--cor-secundaria);
 }
 
 .campo-main-image .image-overlay {
@@ -385,16 +551,16 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 54, 0, 0.7); /* cor-04 com transparência */
+    background-color: var(--cor-overlay-dark);
     color: var(--cor-branca);
     padding: 1.5rem;
-    transform: translateY(100%); /* Esconde inicialmente */
+    transform: translateY(100%);
     opacity: 0;
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
 
 .campo-main-image:hover .image-overlay {
-    transform: translateY(0); /* Mostra no hover */
+    transform: translateY(0);
     opacity: 1;
 }
 
@@ -434,7 +600,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     text-align: center;
     font-weight: bold;
     font-size: 1.1em;
-    transform: translateY(100%); /* Esconde inicialmente */
+    transform: translateY(100%);
     opacity: 0;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
@@ -446,29 +612,128 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 
 /* Efeitos de imagem avançados (CSS Transform + Filter) */
 .image-effect-zoom:hover img {
-    transform: scale(1.1); /* Zoom na imagem */
-    filter: brightness(0.8); /* Escurece um pouco */
+    transform: scale(1.1);
+    filter: brightness(0.8);
 }
 
 .image-effect-rotate:hover img {
-    transform: rotate(5deg) scale(1.05); /* Rotaciona e dá um pequeno zoom */
-    filter: grayscale(100%); /* Transforma em preto e branco */
+    transform: rotate(5deg) scale(1.05);
+    filter: grayscale(100%);
 }
+
+/* --- Nova Seção de Revoluções Agrícolas --- */
+.revolucoes-agricolas {
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    padding: 3rem;
+    margin-top: 4rem;
+    text-align: left;
+}
+
+.revolucoes-agricolas .revolucoes-title {
+    font-size: 2.5em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 1.5em;
+    border-bottom: 2px solid var(--cor-terciaria);
+    display: inline-block;
+    padding-bottom: 0.5em;
+}
+
+.revolucao-item {
+    margin-bottom: 2em;
+    padding: 1.5em;
+    border-left: 5px solid var(--cor-secundaria);
+    background-color: var(--cor-clara);
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.revolucoes-agricolas h4 {
+    font-size: 1.6em;
+    color: var(--cor-terciaria);
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    position: relative;
+    padding-left: 20px;
+}
+
+.revolucoes-agricolas h4::before {
+    content: '★';
+    color: var(--cor-primaria);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+}
+
+.revolucao-item {
+    margin-bottom: 2em;
+    padding: 1.5em;
+    border-left: 5px solid var(--cor-secundaria);
+    background-color: var(--cor-clara);
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.revolucao-item ul {
+    list-style: disc;
+    margin-left: 2em;
+    padding: 0;
+}
+
+.revolucao-item ul li {
+    margin-bottom: 0.5em;
+}
+
+.revolucao-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5em;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
+/* Estilos específicos para o texto do Robô Açaí */
+.revolucao-acai-text p {
+    font-size: 1.25em;
+    text-align: center;
+    line-height: 1.7;
+    color: var(--cor-primaria);
+}
+
+.revolucao-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--cor-shadow);
+    object-fit: cover;
+}
+
+.revolucao-image .image-caption {
+    font-size: 0.85em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
 
 /* --- Seção Cidade --- */
 .cidade-section {
-    background-color: var(--cor-secundaria);
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-terciaria) 100%);
     color: var(--cor-primaria);
     text-align: center;
 }
 
 .cidade-layout {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Coluna de texto e coluna de galeria */
+    grid-template-columns: 1fr 1.5fr;
     gap: 2rem;
-    align-items: center;
     padding: 2rem;
-    background-color: var(--cor-branca);
+    background-color: var(--cor-clara);
     border-radius: 10px;
     box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
 }
@@ -486,7 +751,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 .cidade-gallery {
     position: relative;
     width: 100%;
-    height: 450px; /* Altura fixa para a galeria */
+    height: 450px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px var(--cor-shadow);
@@ -494,13 +759,13 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 
 .gallery-images {
     display: flex;
-    width: 300%; /* 100% * número de imagens */
+    width: 300%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .gallery-images img {
-    width: calc(100% / 3); /* Largura de cada imagem para ocupar 1/3 da largura do contêiner */
+    width: calc(100% / 3);
     height: 100%;
     object-fit: cover;
 }
@@ -526,17 +791,14 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Esconde os radio buttons, mas usa seu estado para controlar a galeria */
 .cidade-gallery input[type="radio"] {
     display: none;
 }
 
-/* Controla o slide da galeria com base no radio button checked */
 .cidade-gallery input#img1:checked ~ .gallery-images { transform: translateX(0); }
 .cidade-gallery input#img2:checked ~ .gallery-images { transform: translateX(-33.333%); }
 .cidade-gallery input#img3:checked ~ .gallery-images { transform: translateX(-66.666%); }
 
-/* Estilo do indicador de navegação quando selecionado */
 .cidade-gallery input#img1:checked ~ .gallery-nav label:nth-child(1),
 .cidade-gallery input#img2:checked ~ .gallery-nav label:nth-child(2),
 .cidade-gallery input#img3:checked ~ .gallery-nav label:nth-child(3) {
@@ -546,15 +808,46 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 
 /* --- Seção Conexão --- */
 .conexao-section {
-    background: linear-gradient(to bottom, var(--cor-clara), var(--cor-secundaria));
+    background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-secundaria));
+    background-size: 100% 200%;
+    background-position: 0% 100%;
+    color: var(--cor-branca);
     text-align: center;
+
+    animation: conexaoBackgroundTransition 1s linear forwards;
+    animation-timeline: view();
+    animation-range: entry 25% cover 50%;
+}
+
+.conexao-section .section-title,
+.conexao-section h3,
+.conexao-section p {
+    color: var(--cor-branca);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.conexao-section .conexao-card .card-icon {
+    background-color: var(--cor-clara);
+}
+.conexao-section .conexao-card .card-icon img {
+    filter: invert(0%);
+}
+.conexao-section .conexao-card h3,
+.conexao-section .conexao-card p {
+    color: var(--cor-primaria);
+}
+
+@keyframes conexaoBackgroundTransition {
+    to {
+        background-position: 0% 0%;
+    }
 }
 
 .conexao-info {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap; /* Permite que os cards quebrem linha */
+    flex-wrap: wrap;
     margin-top: 3rem;
 }
 
@@ -563,14 +856,14 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px var(--cor-shadow);
-    flex: 1 1 300px; /* Cresce, encolhe, base de 300px */
+    flex: 1 1 300px;
     max-width: 350px;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.conexao-card::before { /* Efeito de brilho no hover */
+.conexao-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -602,7 +895,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     width: 60%;
     height: 60%;
     object-fit: contain;
-    filter: invert(100%); /* Inverte a cor do SVG para branco */
+    filter: invert(100%);
 }
 
 .conexao-card h3 {
@@ -628,7 +921,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
 .dot {
     width: 15px;
     height: 15px;
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-branca);
     border-radius: 50%;
     opacity: 0;
     animation: bounceDots 1.5s infinite ease-in-out;
@@ -645,29 +938,487 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     50% { transform: translateY(-20px); opacity: 1; }
 }
 
+/* --- Seção: Comunidade em Ação --- */
+.comunidade-section {
+    background-color: var(--cor-clara);
+    text-align: center;
+    padding-top: 6rem;
+}
+
+.comunidade-content {
+    padding: 2rem;
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+}
+
+.comunidade-content > p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: var(--cor-primaria);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.comunidade-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2em;
+    padding: 1em;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.comunidade-text {
+    text-align: left;
+    padding: 1em;
+}
+
+.comunidade-text h3 {
+    font-size: 2em;
+    color: var(--cor-terciaria);
+    margin-bottom: 0.8em;
+}
+
+.comunidade-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1.5em;
+}
+
+.comunidade-text ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 0.8em;
+    font-size: 1.05em;
+    color: var(--cor-primaria);
+}
+
+.comunidade-text ul li::before {
+    content: '🌱';
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+    color: var(--cor-secundaria);
+}
+
+.comunidade-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    object-fit: cover;
+}
+
+.comunidade-image .image-caption {
+    font-size: 0.9em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-top: 0.8em;
+    font-style: italic;
+}
+
+.comunidade-image .image-detail {
+    font-size: 0.8em;
+    color: var(--cor-terciaria);
+    text-align: center;
+    margin-top: 0.5em;
+    line-height: 1.4;
+    font-style: normal;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Sub-seção: Iniciativa USP - Estilos Reajustados --- */
+.usp-initiative {
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.usp-initiative .usp-title {
+    font-size: 2.2em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 1.5em;
+    border-bottom: 2px solid var(--cor-terciaria);
+    display: inline-block;
+    padding-bottom: 0.5em;
+    width: auto;
+    max-width: 100%;
+}
+
+.usp-content-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 1.5em;
+}
+
+.usp-text {
+    padding: 0;
+}
+
+.usp-text p {
+    margin-bottom: 1em;
+    color: var(--cor-primaria);
+    font-size: 1.05em;
+}
+
+.usp-image {
+    padding: 0;
+    text-align: center;
+}
+
+.usp-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--cor-shadow);
+    object-fit: cover;
+}
+
+.usp-image .image-caption,
+.usp-image .image-detail {
+    font-size: 0.9em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
+/* --- usp-additional-content --- */
+.usp-additional-content {
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.usp-additional-content h4 {
+    font-size: 1.8em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 1.2em;
+    border-bottom: 2px solid var(--cor-terciaria);
+    display: inline-block;
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.usp-additional-content p {
+    color: var(--cor-primaria);
+    font-size: 1.05em;
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+
+/* --- Sub-seção: Pesquisa Afetiva --- */
+.pesquisa-afetiva {
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.pesquisa-afetiva .pesquisa-title {
+    font-size: 2.2em;
+    color: var(--cor-terciaria);
+    text-align: center;
+    margin-bottom: 1.5em;
+    border-bottom: 2px solid var(--cor-primaria);
+    display: inline-block;
+    padding-bottom: 0.5em;
+}
+
+.pesquisa-afetiva .pesquisa-content p {
+    margin-bottom: 1em;
+    color: var(--cor-primaria);
+    font-size: 1.05em;
+}
+
+.pesquisa-afetiva .pesquisa-content ul {
+    list-style: disc;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    color: var(--cor-primaria);
+}
+
+.pesquisa-afetiva .pesquisa-content ul li {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+}
+
+/* --- SEPARADOR DE SEÇÕES INTERNAS (hr) --- */
+.section-separator {
+    border: none;
+    border-top: 2px dashed var(--cor-secundaria);
+    margin: 4em auto;
+    width: 50%;
+    opacity: 0.7;
+}
+
+
+/* --- Sobre o Projeto & Recursos Visuais --- */
+.about-project-section {
+    background-color: var(--cor-branca);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    padding: 6rem 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.about-project-section .section-title {
+    margin-bottom: 2em;
+}
+
+.about-project-section .project-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.about-project-section .project-info,
+.about-project-section .project-visual-tools {
+    text-align: left;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--cor-branca);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.about-project-section .project-info h3,
+.about-project-section .project-visual-tools h3 {
+    font-size: 1.8em;
+    color: var(--cor-primaria);
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.about-project-section .project-info ul li strong {
+    color: var(--cor-primaria);
+}
+
+
+.about-project-section .project-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+.about-project-section .project-info ul li {
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+    color: var(--cor-primaria);
+}
+
+.about-project-section .project-info p {
+    font-size: 1.05em;
+    color: var(--cor-primaria);
+}
+
+.about-project-section .tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5em;
+}
+
+.about-project-section .tool-item {
+    flex: 1 1 180px;
+    max-width: 200px;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.about-project-section .tool-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.8em;
+}
+
+.about-project-section .tool-item h4 {
+    font-size: 1.3em;
+    color: var(--cor-primaria);
+    margin-bottom: 0.4em;
+}
+
+.about-project-section .tool-item p {
+    font-size: 0.9em;
+    color: var(--cor-terciaria);
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.about-project-section .visual-gallery {
+    padding: 2rem;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    margin-top: 3rem;
+}
+
+.about-project-section .visual-gallery h4 {
+    font-size: 1.8em;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5em;
+    border-bottom: 2px solid var(--cor-secundaria);
+    display: inline-block;
+    padding-bottom: 0.3em;
+}
+
+.about-project-section .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.about-project-section .gallery-container img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-project-section .gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.about-project-section .gallery-disclaimer {
+    font-size: 0.9em;
+    color: var(--cor-terciaria);
+    margin-top: 2em;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+
+/* --- Fontes de Informação --- */
+.section-sources {
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--cor-shadow);
+    padding: 3rem;
+    margin-top: 4rem;
+    text-align: left;
+}
+
+.section-sources .sources-title {
+    font-size: 2em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 1.5em;
+    border-bottom: 2px solid var(--cor-secundaria);
+    display: inline-block;
+    padding-bottom: 0.5em;
+}
+
+.section-sources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section-sources ul li {
+    margin-bottom: 1.5em;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1em;
+    color: var(--cor-primaria);
+}
+
+.section-sources ul li::before {
+    content: '📚';
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+    color: var(--cor-terciaria);
+}
+
+.section-sources ul li a {
+    color: var(--cor-terciaria);
+    text-decoration: underline;
+    word-wrap: break-word;
+}
+
+.section-sources ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+.section-sources ul li strong {
+    color: var(--cor-primaria);
+}
+
+/* Estilo para a referência original da pesquisa */
+.section-sources ul li .original-ref {
+    display: block;
+    font-size: 0.9em;
+    color: var(--cor-terciaria);
+    margin-top: 0.5em;
+}
+
+
 /* --- Rodapé (Footer) --- */
 .contact-footer {
     background-color: var(--cor-primaria);
     color: var(--cor-branca);
-    padding: 4rem 2rem 1.5rem; /* Ajuste o padding inferior para o copyright */
+    padding: 4rem 2rem 1.5rem;
     text-align: center;
-    border-radius: 15px 15px 0 0; /* Bordas arredondadas no topo */
+    border-radius: 15px 15px 0 0;
     box-shadow: 0 -8px 20px var(--cor-shadow);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap; /* Permite que os blocos quebrem linha */
+    flex-wrap: wrap;
     gap: 3rem;
     max-width: 1000px;
-    margin: 0 auto 3rem; /* Margem para o copyright */
+    margin: 0 auto 3rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--cor-secundaria);
 }
 
 .footer-info, .contact-form {
-    flex: 1 1 400px; /* Base de 400px, flexível */
+    flex: 1 1 400px;
     max-width: 500px;
     text-align: left;
 }
@@ -699,7 +1450,7 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     padding: 0.8em 1em;
     border-radius: 8px;
     border: 1px solid var(--cor-secundaria);
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--cor-branca);
     font-size: 1em;
     outline: none;
@@ -735,7 +1486,20 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     margin-top: 1.5rem;
     font-size: 0.9em;
     color: var(--cor-clara);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    text-align: center;
 }
+
+/* Estilo para o ícone do rodapé */
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--cor-clara);
+}
+
 
 /* --- Botão de Voltar ao Topo --- */
 .back-to-top-button {
@@ -753,12 +1517,11 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     font-size: 2em;
     box-shadow: 0 4px 10px var(--cor-shadow);
     z-index: 90;
-    opacity: 0; /* Começa invisível */
-    pointer-events: none; /* Não interage com o mouse quando invisível */
-    /* Animação baseada na rolagem para aparecer/desaparecer */
+    opacity: 0;
+    pointer-events: none;
     animation: showHideButton 1s linear forwards;
     animation-timeline: scroll();
-    animation-range: 200px 500px; /* Aparece entre 200px e 500px de rolagem */
+    animation-range: 200px 500px;
 }
 
 @keyframes showHideButton {
@@ -776,12 +1539,12 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     }
 
     .campo-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas médias */
+        grid-template-columns: 1fr;
         padding: 1.5rem;
     }
 
     .campo-main-image {
-        grid-column: 1 / 2; /* Ocupa uma coluna */
+        grid-column: 1 / 2;
         height: 300px;
     }
     .campo-text-block {
@@ -791,19 +1554,26 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
         height: 200px;
     }
 
+    .revolucao-content-grid,
+    .comunidade-grid,
+    .usp-content-grid,
+    .about-project-section .project-content-grid {
+        grid-template-columns: 1fr;
+    }
+
     .cidade-layout {
-        grid-template-columns: 1fr; /* Uma coluna em telas médias */
+        grid-template-columns: 1fr;
         padding: 1.5rem;
     }
     .cidade-gallery {
-        height: 350px; /* Ajusta altura da galeria */
+        height: 350px;
     }
 
     .conexao-info {
         gap: 1.5rem;
     }
     .conexao-card {
-        flex: 1 1 280px; /* Ajusta base para cards */
+        flex: 1 1 280px;
     }
 
     .footer-content {
@@ -813,75 +1583,129 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     }
     .footer-info, .contact-form {
         max-width: 100%;
-        text-align: center; /* Centraliza o texto no mobile */
+        text-align: center;
+    }
+
+    .hero-content {
+        padding: 2.5rem 3rem;
+    }
+    .hero-content h1 {
+        font-size: 4.5em;
+    }
+    .hero-content p {
+        font-size: 1.5em;
+    }
+    .hero-button {
+        font-size: 1.2em;
+        padding: 0.9em 2.5em;
+    }
+    .about-project-section .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .about-project-section .tool-item {
+        flex: 1 1 150px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    /* Esconde o menu de desktop e mostra o hamburguer */
+    .nav-toggle-label {
+        display: flex;
+    }
+
     .main-nav {
-        display: none;
-        flex-direction: column;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
         position: absolute;
-        top: 100%; /* Abaixo do cabeçalho */
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--cor-primaria);
-        padding: 1rem 0;
+        padding: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        max-height: 0; /* Esconde para animação */
-        opacity: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, transform 0.4s ease-out;
-        transform: translateY(-10px); /* Começa ligeiramente acima */
+        flex-direction: column;
+        align-items: center;
+        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+    }
+
+    .nav-toggle-input:checked ~ .main-nav {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+        padding: 1rem 0;
     }
 
     .main-nav .nav-links {
         flex-direction: column;
         gap: 10px;
+        width: 100%;
         text-align: center;
     }
+
     .main-nav .nav-links a {
         padding: 0.8em 0;
         font-size: 1.2em;
+        border-radius: 0;
+        color: var(--cor-branca);
     }
-    .main-nav .nav-links a::after { /* Remove o sublinhado animado em mobile se quiser */
+    .main-nav .nav-links a::after {
         display: none;
     }
     .main-nav .nav-links a:hover {
         background-color: var(--cor-secundaria);
         color: var(--cor-primaria);
+        transform: none;
     }
 
+    .intro-title {
+        font-size: 4em;
+        letter-spacing: 4px;
+    }
+    .intro-subtitle {
+        font-size: 1.8em;
+    }
+    .intro-message {
+        font-size: 1.2em;
+        max-width: 90%;
+    }
+    .intro-line {
+        width: 200px;
+    }
+    .skip-intro-button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
 
-    .nav-toggle-label {
-        display: flex; /* Mostra o ícone do hamburguer */
-        z-index: 101; /* Garante que esteja acima do menu */
+    .hero-content {
+        padding: 1.5rem 2rem;
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
+        letter-spacing: 2px;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+        max-width: 90%;
+    }
+    .hero-button {
+        font-size: 1.1em;
+        padding: 0.8em 2em;
     }
 
     h1 { font-size: 2.8em; }
     h2 { font-size: 2em; }
     p { font-size: 1em; }
 
-    .hero-content {
-        padding: 1rem;
-    }
-    .hero-content h1 {
-        font-size: 3.5em;
-    }
-    .hero-content p {
-        font-size: 1.2em;
-    }
-
     .content-section {
         padding: 4rem 1.5rem;
     }
 
     .contact-form {
-        padding: 0 1rem; /* Adiciona padding para formulário em mobile */
+        padding: 0 1rem;
     }
     .footer-info {
-        padding: 0 1rem; /* Adiciona padding para info em mobile */
+        padding: 0 1rem;
     }
 
     .back-to-top-button {
@@ -891,19 +1715,69 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
         bottom: 20px;
         right: 20px;
     }
+
+    .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
+        font-size: 1.8em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        word-break: break-word;
+    }
+    .usp-title {
+        font-size: 1.6em;
+    }
+    .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
+        font-size: 1.5em;
+        word-break: break-word;
+    }
+
+    .about-project-section .tool-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .about-project-section .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
 }
 
 @media screen and (max-width: 480px) {
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    .hero-content h1 { font-size: 2.8em; }
-    .hero-content p { font-size: 1em; }
-    .hero-button { font-size: 1em; padding: 0.6em 1.5em; }
-
-    .content-section {
-        padding: 3rem 1rem;
+    .intro-title {
+        font-size: 3em;
+        letter-spacing: 2px;
+    }
+    .intro-subtitle {
+        font-size: 1.4em;
+    }
+    .intro-message {
+        font-size: 1em;
+    }
+    .intro-line {
+        width: 150px;
+        margin: 1em auto;
+    }
+    .skip-intro-button {
+        font-size: 0.9em;
+        padding: 10px 20px;
     }
 
+    .hero-content {
+        padding: 1rem 1.5rem;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .hero-button {
+        font-size: 1.1em;
+        padding: 0.7em 1.8em;
+    }
+
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
     .campo-main-image {
         height: 250px;
     }
@@ -942,20 +1816,34 @@ a { color: inherit; } /* Links herdam a cor do pai por padrão */
     .footer-content {
         gap: 1.5rem;
     }
+
+    .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
+        font-size: 1.5em;
+    }
+    .usp-title {
+        font-size: 1.4em;
+    }
+    .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
+        font-size: 1.3em;
+    }
+    .about-project-section .tool-item h3 {
+        font-size: 1.3em;
+    }
+    .about-project-section .visual-gallery h4 {
+        font-size: 1.6em;
+    }
 }
 
-/* --- Placeholder Images (Substitua pelos seus arquivos reais em assets/images/) --- */
-/* Ex: img[src*="hero-bg.png"] { content: normal; } se você tiver a imagem real */
-img[src*="hero-bg.png"] { content: url('https://placehold.co/1920x1080/003600/94b994?text=HERO+BACKGROUND'); }
-img[src*="campo-main.png"] { content: url('https://placehold.co/800x400/94b994/003600?text=CAMPO+PRINCIPAL'); }
-img[src*="campo-cultivo.png"] { content: url('https://placehold.co/400x250/94b994/003600?text=CULTIVO'); }
-img[src*="campo-colheita.png"] { content: url('https://placehold.co/400x250/94b994/003600?text=COLHEITA'); }
-img[src*="cidade-luzes.png"] { content: url('https://placehold.co/800x600/003600/94b994?text=CIDADE+LUZES'); }
-img[src*="cidade-verde.png"] { content: url('https://placehold.co/800x600/003600/94b994?text=PARQUE+URBANO'); }
-img[src*="cidade-cultura.png"] { content: url('https://placehold.co/800x600/003600/94b994?text=ARTE+URBANA'); }
-
-/* --- Placeholder Icons (Substitua pelos seus arquivos reais em assets/icons/) --- */
-/* Ex: img[src*="agricultura-familiar.svg"] { content: normal; } se você tiver o ícone real */
-img[src*="agricultura-familiar.svg"] { content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 18 2c1 1.5 1.5 3.3.1 4.7C17.3 7.8 15.3 9.8 12 13c-2.1 2.1-3.6 3.6-3.5 5.6a2 2 0 0 0 2 2Z"/><path d="M12 13c-1.2-1.2-2.5-2.5-3.5-3.5a4 4 0 1 1 6-6"/></svg>'); }
-img[src*="ecoturismo.svg"] { content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mountain"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>'); }
-img[src*="inovacao.svg"] { content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="M9.9 10.3c.7.8 1.6 1.4 2.7 1.8 1.1.3 2.3.5 3.4.4 1-.1 2-.5 2.8-1.1.8-.6 1.3-1.4 1.6-2.3.2-.9.2-1.8 0-2.6-.2-.8-.6-1.5-1.2-2.2-.6-.6-1.4-1.1-2.3-1.4-1-.3-2-.3-3-.2-1.2.2-2.2.8-3 1.6l-2.4 2.8c-.8.9-1.3 2-1.4 3.2-.1 1.2.3 2.4.9 3.5l.4.7c.9 1.6 2.3 2.9 3.9 3.7.8.4 1.7.7 2.6.8 1.1.1 2.2 0 3.3-.3 1-.3 2-.8 2.8-1.5l2.4-2.8c.8-.9 1.3-2 1.4-3.2.1-1.2-.3-2.4-.9-3.5l-.4-.7c-.9-1.6-2.3-2.9-3.9-3.7-.8-.4-1.7-.7-2.6-.8-1.1-.1-2.2 0-3.3.3-1 .3-2 .8-2.8 1.5z"/></svg>'); }
+/* --- Placeholder Images --- */
+img[src*="hero-bg.png"] { content: url('https://placehold.co/1920x1080/003600/94b994?text=[Fundo Hero]'); }
+img[src*="campo-main.png"] { content: url('https://placehold.co/1200x600/6A8E6A/F9FAF4?text=[Campo Principal]'); }
+img[src*="campo-cultivo.png"] { content: url('https://placehold.co/600x400/94b994/003600?text=[Cultivo Sustentável]'); }
+img[src*="campo-colheita.png"] { content: url('https://placehold.co/600x400/003600/94b994?text=[Colheita]'); }
+img[src*="robo-acai.png"] { content: normal; }
+img[src*="cidade-luzes.png"] { content: url('https://placehold.co/800x600/2C3E50/ECF0F1?text=[Cidade Luzes]'); }
+img[src*="cidade-verde.png"] { content: url('https://placehold.co/800x600/27AE60/FFFFFF?text=[Cidade Verde]'); }
+img[src*="cidade-cultura.png"] { content: url('https://placehold.co/800x600/8E44AD/FFFFFF?text=[Cidade Cultura]'); }
+img[src*="horta-urbana.jpg"] { content: normal; }
+img[src*="horta-fmusp.jpg"] { content: normal; }
+img[src*="tool-canva.png"] { content: normal; }
+img[src*="tool-gimp.png"] { content: normal; }
