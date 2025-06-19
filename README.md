@@ -53,6 +53,7 @@ Aqui você pode acompanhar as principais mudanças e melhorias em cada versão d
 -   **Hotfix:** Substituição de formatação Markdown `**texto**` por tags HTML `<strong>texto</strong>` para garantir renderização consistente e correta do negrito.
 -   **Hotfix:** Implementação de JavaScript para garantir que o scroll da página seja resetado para o topo e mantido durante e após a animação de introdução, desativando a restauração automática do scroll do navegador.
 -   **Hotfix:** Ajustes no CSS para garantir que a `intro-animation-container` cubra totalmente a tela, mesmo com zoom, evitando que o fundo do site seja visível antes da transição completa.
+-   **melhoria:** Botões de links redirecionáveis na seção de "Comunidade em Ação: Hortas Urbanas" e a remoção de das "Fontes de informação".
 
 ### Versão 1.1.5 - 18 de Junho de 2025 (Hotfix e Refinamentos)
 
