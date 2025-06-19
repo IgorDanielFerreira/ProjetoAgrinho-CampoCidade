@@ -40,6 +40,7 @@ body {
     background-color: var(--cor-clara);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* --- Estilização da Barra de Rolagem (WebKit - Chrome, Safari) --- */
@@ -103,16 +104,16 @@ a { color: inherit; }
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-100vh);
+    transform: translateY(-105vh);
     transition: opacity 1.2s ease-out, visibility 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .intro-animation-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 105vw;
+    height: 105vh;
+    top: -2.5vh;
+    left: -2.5vw;
     background: linear-gradient(45deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
     display: flex;
     flex-direction: column;
@@ -386,6 +387,7 @@ a { color: inherit; }
     display: none;
 }
 
+/* Transforma o ícone do hambúrguer em X */
 .nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -846,8 +848,8 @@ a { color: inherit; }
 .conexao-info {
     display: flex;
     justify-content: center;
-    gap: 2rem;
     flex-wrap: wrap;
+    gap: 2rem;
     margin-top: 3rem;
 }
 
@@ -1299,7 +1301,7 @@ a { color: inherit; }
 
 .about-project-section .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Mais imagens por linha */
     gap: 1.2rem;
     justify-content: center;
     padding: 1rem;
@@ -1307,7 +1309,7 @@ a { color: inherit; }
 
 .about-project-section .gallery-container img {
     width: 100%;
-    height: 120px;
+    height: 120px; /* Altura ajustada para mais imagens */
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -1384,7 +1386,7 @@ a { color: inherit; }
 }
 
 .section-sources ul li strong {
-    color: var(--cor-primaria);
+    color: var(--cor-secundaria);
 }
 
 /* Estilo para a referência original da pesquisa */
@@ -1493,7 +1495,6 @@ a { color: inherit; }
     text-align: center;
 }
 
-/* Estilo para o ícone do rodapé */
 .footer-icon {
     width: 20px;
     height: 20px;
@@ -1561,6 +1562,7 @@ a { color: inherit; }
         grid-template-columns: 1fr;
     }
 
+
     .cidade-layout {
         grid-template-columns: 1fr;
         padding: 1.5rem;
@@ -1585,6 +1587,7 @@ a { color: inherit; }
         max-width: 100%;
         text-align: center;
     }
+
 
     .hero-content {
         padding: 2.5rem 3rem;
@@ -1658,6 +1661,7 @@ a { color: inherit; }
         transform: none;
     }
 
+
     .intro-title {
         font-size: 4em;
         letter-spacing: 4px;
@@ -1676,6 +1680,7 @@ a { color: inherit; }
         font-size: 1.1em;
         padding: 12px 25px;
     }
+
 
     .hero-content {
         padding: 1.5rem 2rem;
@@ -1716,6 +1721,7 @@ a { color: inherit; }
         right: 20px;
     }
 
+    /* Ajustes específicos para títulos que podem escapar no mobile */
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
         font-size: 1.8em;
         padding-left: 0.5em;
@@ -1761,6 +1767,7 @@ a { color: inherit; }
         font-size: 0.9em;
         padding: 10px 20px;
     }
+
 
     .hero-content {
         padding: 1rem 1.5rem;
@@ -1816,6 +1823,7 @@ a { color: inherit; }
     .footer-content {
         gap: 1.5rem;
     }
+
 
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
         font-size: 1.5em;

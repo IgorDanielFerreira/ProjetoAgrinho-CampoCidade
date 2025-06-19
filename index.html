@@ -8,6 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.onload = function() {
+            window.scrollTo(0, 0);
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+            const skipIntroCheckbox = document.getElementById('skip-intro');
+            const enterSiteButton = document.getElementById('enter-site-button');
+            const introAnimationContainer = document.getElementById('intro-animation-container');
+
+            if (enterSiteButton) {
+                enterSiteButton.addEventListener('click', function() {
+                    setTimeout(() => {
+                        document.body.style.overflow = 'auto';
+                        window.scrollTo(0, 0);
+                    }, 1200);
+                });
+            }
+
+            if (skipIntroCheckbox.checked) {
+                introAnimationContainer.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+    </script>
 
     <!-- Hidden checkbox to control intro animation -->
     <input type="checkbox" id="skip-intro" class="skip-intro-checkbox">
@@ -20,7 +49,7 @@
             <div class="intro-line"></div>
             <p class="intro-message">Bem-vindo à celebração da sustentabilidade e inovação.</p>
         </div>
-        <label for="skip-intro" class="skip-intro-button">Entrar no Site</label>
+        <label for="skip-intro" class="skip-intro-button" id="enter-site-button">Entrar no Site</label>
     </div>
 
     <!-- Cabeçalho Fixo -->
@@ -43,7 +72,7 @@
                 <li><a href="#secao-cidade">Cidade</a></li>
                 <li><a href="#secao-conexao">A Conexão</a></li>
                 <li><a href="#secao-comunidade">Comunidade</a></li>
-                <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li> <!-- Link atualizado -->
+                <li><a href="#sobre-o-projeto">Sobre o Projeto</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -92,9 +121,9 @@
             <div class="revolucao-item">
                 <h4>Agricultura de Precisão e o Robô Açaí</h4>
                 <div class="revolucao-content-grid">
-                    <div class="revolucao-text revolucao-acai-text"> <!-- Adicionei a classe revolucao-acai-text aqui -->
-                        <p>A colheita do açaí, um fruto vital para a economia e cultura da região amazônica, sempre foi uma tarefa árdua e perigosa para os coletores, que precisavam escalar palmeiras altas. O inovador **Robô Açaí** surge para transformar essa realidade, garantindo a **segurança** dos trabalhadores ao eliminar os riscos em altura.</p>
-                        <p>Além da segurança, o robô **otimiza a eficiência** da colheita, assegurando que o açaí seja coletado no ponto ideal de maturação, o que melhora a qualidade do produto. Ele também **reduz significativamente o desperdício** e os danos à fruta. Este projeto é um exemplo claro de como a **tecnologia urbana** pode ser aplicada diretamente para resolver desafios do campo, criando soluções localizadas que beneficiam tanto os produtores rurais quanto os consumidores nas cidades.</p>
+                    <div class="revolucao-text revolucao-acai-text">
+                        <p>A colheita do açaí, um fruto vital para a economia e cultura da região amazônica, sempre foi uma tarefa árdua e perigosa para os coletores, que precisavam escalar palmeiras altas. O inovador <strong>Robô Açaí</strong> surge para transformar essa realidade, garantindo a <strong>segurança</strong> dos trabalhadores ao eliminar os riscos em altura.</p>
+                        <p>Além da segurança, o robô <strong>otimiza a eficiência</strong> da colheita, assegurando que o açaí seja coletado no ponto ideal de maturação, o que melhora a qualidade do produto. Ele também <strong>reduz significativamente o desperdício</strong> e os danos à fruta. Este projeto é um exemplo claro de como a <strong>tecnologia urbana</strong> pode ser aplicada diretamente para resolver desafios do campo, criando soluções localizadas que beneficiam tanto os produtores rurais quanto os consumidores nas cidades.</p>
                     </div>
                     <div class="revolucao-image">
                         <img src="assets/images/robo-acai.png" alt="Robô Colhendo Açaí na Amazônia">
@@ -182,13 +211,13 @@
     <section id="secao-comunidade" class="content-section comunidade-section">
         <h2 class="section-title">Comunidade em Ação: Hortas Urbanas</h2>
         <div class="comunidade-content">
-            <p>No coração de São Paulo, a comunidade demonstra capacidade de **resistir e transformar**, cultivando alimentos e esperança. Uma festa de sustentabilidade e colaboração em espaços antes ociosos.</p>
+            <p>No coração de São Paulo, a comunidade demonstra capacidade de <strong>resistir e transformar</strong>, cultivando alimentos e esperança. Uma festa de sustentabilidade e colaboração em espaços antes ociosos.</p>
             <hr class="section-separator">
 
             <div class="comunidade-grid">
                 <div class="comunidade-text">
                     <h3>Cultivando o Futuro na Cidade</h3>
-                    <p>Mãos dedicadas redefinem paisagismo urbano e segurança alimentar. Transformam terrenos e escolas em centros de produção **100% orgânicos**, fortalecendo renda e segurança alimentar.</p>
+                    <p>Mãos dedicadas redefinem paisagismo urbano e segurança alimentar. Transformam terrenos e escolas em centros de produção <strong>100% orgânicos</strong>, fortalecendo renda e segurança alimentar.</p>
                     <p>Revitalizam espaços, fomentam educação ambiental e criam laços comunitários. Prova que agricultura comunitária prospera na maior cidade, construindo futuro sustentável.</p>
                 </div>
                 <div class="comunidade-image">
@@ -199,11 +228,12 @@
             </div>
             <hr class="section-separator">
 
+            <!-- SUB-SEÇÃO: Destaque da USP em Agricultura Urbana -->
             <div class="usp-initiative">
                 <h3 class="usp-title">A USP na Vanguarda da Agricultura Urbana</h3>
                 <div class="usp-content-grid">
                     <div class="usp-text">
-                        <p>O **Grupo de Estudos em Agricultura Urbana (GEAU)** da USP destaca-se em soluções inovadoras. Desde 2016, o GEAU, integrado ao IEA, centraliza debates sobre Agricultura Urbana (AU) em São Paulo.</p>
+                        <p>O <strong>Grupo de Estudos em Agricultura Urbana (GEAU)</strong> da USP destaca-se em soluções inovadoras. Desde 2016, o GEAU, integrado ao IEA, centraliza debates sobre Agricultura Urbana (AU) em São Paulo.</p>
                         <p>Coordenado pela Prof.ª Thais Mauad, o grupo promove uma visão holística. A "Horta da Faculdade de Medicina" (FMUSP), na laje, é exemplo prático de sustentabilidade, cultivada por professores, alunos, funcionários e voluntários.</p>
                     </div>
                     <div class="usp-image">
@@ -214,23 +244,24 @@
                 </div>
                 <div class="usp-additional-content">
                     <h4>Impacto e Expansão da Agricultura Urbana da USP</h4>
-                    <p>A USP gera conhecimento e projetos concretos para a comunidade. O GEAU atua em **pesquisas estratégicas**, **parcerias internacionais**, **educação** (com a horta da FMUSP) e **promoção de PANCs**.</p>
+                    <p>A USP gera conhecimento e projetos concretos para a comunidade. O GEAU atua em <strong>pesquisas estratégicas</strong>, <strong>parcerias internacionais</strong>, <strong>educação</strong> (com a horta da FMUSP) e <strong>promoção de PANCs</strong>.</p>
                     <p>Essas iniciativas inspiram novas hortas, expandindo a rede no Brasil. A USP mostra como transformar espaços urbanos em centros de produção saudável e cidadania, fortalecendo a conexão campo-cidade.</p>
                 </div>
             </div>
-            <!-- Fim da Sub-seção USP -->
             <hr class="section-separator">
 
+            <!-- SUB-SEÇÃO: Benefícios Simbólicos e Afetivos das Hortas Comunitárias -->
             <div class="pesquisa-afetiva">
                 <h3 class="pesquisa-title">Os Laços Invisíveis: Benefícios das Hortas</h3>
                 <div class="pesquisa-content">
-                    <p>Hortas comunitárias cultivam **conexões humanas e bem-estar psicológico**. Pesquisa revela: **Agradabilidade**, **Restauração** e **Pertencimento**. Conexão com a natureza e interação social melhoram saúde física e mental, aliviando estresse.</p>
+                    <p>Hortas comunitárias cultivam <strong>conexões humanas e bem-estar psicológico</strong>. Pesquisa revela: <strong>Agradabilidade</strong>, <strong>Restauração</strong> e <strong>Pertencimento</strong>. Conexão com a natureza e interação social melhoram saúde física e mental, aliviando estresse.</p>
                     <p>São territórios de saúde, sustentabilidade e laços afetivos, onde agroecologia e psicologia ambiental caminham juntas.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Sobre o Projeto & Recursos Visuais -->
     <section id="sobre-o-projeto" class="content-section about-project-section">
         <h2 class="section-title">Sobre o Projeto & Recursos Visuais</h2>
         <div class="project-content-grid">
@@ -238,15 +269,15 @@
                 <h3>Informações do Projeto</h3>
                 <ul>
                     <li><strong>Autor:</strong> Igor Daniel Ferreira</li>
-                    <li><strong>Instituição:</strong> CEAM | Cólegio Estadual Altair Mongruel</li>
+                    <li><strong>Instituição:</strong> CEAM | Colégio Estadual Altair Mongruel</li>
                     <li><strong>Concurso:</strong> Agrinho 2025 - Tema "Festejando a conexão campo cidade"</li>
                     <li><strong>Ano:</strong> 2025</li>
                 </ul>
-                <p>Este projeto foi desenvolvido por um <strong>do Ensino Médio</strong> com o intuito de demonstrar a harmonia e interdependência entre os ambientes rural e urbano através de um site interativo e visualmente atraente.</p>
+                <p>Este projeto foi desenvolvido por um <strong>estudante do Ensino Médio</strong> com o intuito de demonstrar a harmonia e interdependência entre os ambientes rural e urbano através de um site interativo e visualmente atraente.</p>
             </div>
             <div class="project-visual-tools">
                 <h3>Ferramentas Visuais Utilizadas</h3>
-                <p>O ícone do site e os icones da seção Pontes foram criadas usando as devidas ferramentas:</p>
+                <p>Todas as imagens e elementos visuais no site são <strong>placeholders</strong> criados para ilustrar o conteúdo visual que seria desenvolvido, utilizando as seguintes ferramentas:</p>
                 <div class="tools-grid">
                     <div class="tool-item">
                         <img src="assets/images/tool-canva.png" alt="Logo Canva">
@@ -256,14 +287,19 @@
                     <div class="tool-item">
                         <img src="assets/images/tool-gimp.png" alt="Logo GIMP">
                         <h4>GIMP</h4>
-                        <p>Editor de imagens para retoque de fotos, edição de imagens, pintura digital e conversão de formatos de imagem.</p>
+                        <p>Software de manipulação de imagens gratuito e de código aberto.</p>
+                    </div>
+                    <div class="tool-item">
+                        <img src="assets/images/tool-fotor.png" alt="Logo Fotor">
+                        <h4>Fotor</h4>
+                        <p>Ferramenta online para retoque rápido e aprimoramento.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="visual-gallery">
-            <h4>Galeria de Imagens do Projeto</h4>
+            <h4>Galeria de Imagens do Projeto (Placeholders)</h4>
             <div class="gallery-container">
                 <img src="assets/images/hero-bg.png" alt="Fundo da Seção Hero">
                 <img src="assets/images/campo-main.png" alt="Imagem Principal do Campo">
@@ -276,9 +312,11 @@
                 <img src="assets/images/horta-urbana.jpg" alt="Imagem de Horta Urbana">
                 <img src="assets/images/horta-fmusp.jpg" alt="Imagem da Horta FMUSP">
             </div>
-            <p class="gallery-disclaimer">As imagens acima são **placeholders** para ilustrar o conteúdo visual do projeto. Foram utilizadas para preencher o site para avaliação do concurso, demonstrando o tipo de arte e design que seria desenvolvido. O foco do projeto está na estrutura, conteúdo textual e design responsivo, todos criados com as ferramentas mencionadas. As imagens reais seriam de autoria própria.</p>
+            <p class="gallery-disclaimer">As imagens acima são <strong>placeholders</strong> para ilustrar o conteúdo visual do projeto. Foram utilizadas para preencher o site para avaliação do concurso, demonstrando o tipo de arte e design que seria desenvolvido. O foco do projeto está na estrutura, conteúdo textual e design responsivo, todos criados com as ferramentas mencionadas. As imagens reais seriam de autoria própria.</p>
         </div>
     </section>
+
+    <!-- Fontes de Informação -->
     <div class="section-sources">
         <h3 class="sources-title">Fontes de Informação</h3>
         <ul>
@@ -299,6 +337,7 @@
         </ul>
     </div>
 
+    <!-- Seção de Contato/Rodapé -->
     <footer id="contato" class="contact-footer">
         <div class="footer-content">
             <div class="footer-info">
@@ -318,6 +357,7 @@
         </div>
         <div class="copyright">
             <p>&copy; 2025 Harmonia Natural. Projeto desenvolvido por um estudante do Ensino Médio para o Concurso Agrinho 2025.</p>
+            <!-- Ícone SVG no rodapé -->
             <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 18 2c1 1.5 1.5 3.3.1 4.7C17.3 7.8 15.3 9.8 12 13c-2.1 2.1-3.6 3.6-3.5 5.6a2 2 0 0 0 2 2Z"/><path d="M12 13c-1.2-1.2-2.5-2.5-3.5-3.5a4 4 0 1 1 6-6"/></svg>
         </div>
     </footer>
