@@ -29,7 +29,6 @@ Este projeto foi construído utilizando tecnologias web fundamentais:
 
 -   **HTML5:** Para a estrutura e conteúdo da página.
 -   **CSS3:** Para o design, layout responsivo, animações e efeitos visuais.
--   **JavaScript:** Para controle de comportamento da página, como a animação de introdução e o reset de scroll.
 
 ## Como Executar o Projeto
 
