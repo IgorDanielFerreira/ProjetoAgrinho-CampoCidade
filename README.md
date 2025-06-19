@@ -48,11 +48,21 @@ Este site foi desenvolvido por **Igor Daniel Ferreira**, um estudante do Ensino 
 
 Aqui você pode acompanhar as principais mudanças e melhorias em cada versão do projeto.
 
-### Versão 1.1.5 - 18 de Junho de 2025 (Hotfix e Refinamentos)
+### Versão 1.2.0 - 19 de Junho de 2025
+
+-   **Melhoria:** Ícone principal da página adicionado no header e no footer e também svgs da seção "Pontos Que Unem".
+-   **Melhoria:** Imagem do campo principal adicionado com a devidas informações das fontes da imagem.
+-   **Melhoria:** Paddings e fontes diminuidas para melhor resposividade para mobile.
+
+### Versão 1.1.6 - 18 de Junho de 2025 (Hotfix e Refinamentos)
 
 -   **Hotfix:** Substituição de formatação Markdown `**texto**` por tags HTML `<strong>texto</strong>` para garantir renderização consistente e correta do negrito.
 -   **Hotfix:** Implementação de JavaScript para garantir que o scroll da página seja resetado para o topo e mantido durante e após a animação de introdução, desativando a restauração automática do scroll do navegador.
 -   **Hotfix:** Ajustes no CSS para garantir que a `intro-animation-container` cubra totalmente a tela, mesmo com zoom, evitando que o fundo do site seja visível antes da transição completa.
+-   **melhoria:** Botões de links redirecionáveis na seção de "Comunidade em Ação: Hortas Urbanas" e a remoção de das "Fontes de informação".
+
+### Versão 1.1.5 - 18 de Junho de 2025
+
 -   **Melhoria:** Aumento e centralização do texto na seção "Agricultura de Precisão e o Robô Açaí" com informações adicionais para maior clareza.
 -   **Melhoria:** Ajustes finos nos estilos CSS para garantir que os títulos se adaptem melhor a telas mobile, evitando que "escapem" dos contêineres.
 -   **Melhoria:** Criação de uma nova seção "Sobre o Projeto & Recursos Visuais" com detalhes sobre o autor, instituição e propósito do projeto para o Concurso Agrinho 2025.
