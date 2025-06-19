@@ -25,13 +25,13 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    transition: all 0.4s ease-in-out; /* Mantenho a transição global para elementos normais */
+    transition: all 0.4s ease-in-out;
 }
 
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    overflow: hidden; /* Oculta o scrollbar inicial do html */
+    overflow: hidden;
 }
 
 body {
@@ -39,8 +39,8 @@ body {
     color: var(--cor-primaria);
     background-color: var(--cor-clara);
     line-height: 1.6;
-    overflow: hidden; /* Oculta o scrollbar inicial do body */
-    overflow-x: hidden; /* Garante que o scroll horizontal esteja sempre oculto */
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* --- Estilização da Barra de Rolagem (WebKit - Chrome, Safari) --- */
@@ -70,8 +70,8 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--cor-primaria);
     line-height: 1.2;
-    word-break: break-word; /* Para evitar quebra de palavras longas em títulos */
-    overflow-wrap: break-word; /* Suporte mais amplo para quebra de palavras */
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 h1 { font-size: 3.5em; }
@@ -91,9 +91,9 @@ a { color: inherit; }
     color: var(--cor-primaria);
     font-size: 3.2em;
     text-shadow: 2px 2px 4px var(--cor-shadow);
-    max-width: 90%; /* Limita a largura para evitar quebras estranhas */
-    margin-left: auto; /* Centraliza o título com max-width */
-    margin-right: auto; /* Centraliza o título com max-width */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- Animação de Boas-Vindas Profissional --- */
@@ -105,8 +105,7 @@ a { color: inherit; }
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-105vh); /* Move mais para fora da tela */
-    /* Mantém a transição explícita para a saída da intro */
+    transform: translateY(-105vh);
     transition: opacity 1.2s ease-out, visibility 1.2s ease-out, transform 1.2s ease-out;
 }
 
@@ -124,13 +123,9 @@ a { color: inherit; }
     overflow: hidden;
     z-index: 9999;
     animation: gradientShift 10s infinite alternate ease-in-out;
-    /* Impede transições indesejadas para propriedades de layout afetadas por 'transition: all' globalmente */
-    /* Estas propriedades devem 'saltar' instantaneamente em redimensionamento/zoom, não transicionar */
-    transition: none; /* Isso remove o 'transition: all' para esta div na sua base */
+    transition: none;
 }
 
-/* As animações de entrada do conteúdo da intro não são afetadas por 'transition: none' no container */
-/* pois elas são definidas por keyframes ou animações específicas de seus próprios elementos filhos. */
 
 
 @keyframes gradientShift {
@@ -274,9 +269,9 @@ a { color: inherit; }
 }
 
 #main-header .logo {
-    display: flex; /* Para alinhar o ícone com o texto do logo */
+    display: flex;
     align-items: center;
-    gap: 0.5em; /* Espaçamento entre ícone e texto */
+    gap: 0.5em;
 }
 
 #main-header .logo a {
@@ -291,10 +286,10 @@ a { color: inherit; }
 
 /* Estilo para o ícone do cabeçalho */
 .header-logo-icon {
-    width: 28px; /* Tamanho do ícone */
+    width: 28px;
     height: 28px;
-    color: var(--cor-branca); /* Cor do ícone */
-    transition: color 1s linear forwards; /* Animação de cor ao rolar */
+    color: var(--cor-branca);
+    transition: color 1s linear forwards;
     animation-timeline: scroll();
     animation-range: 0 200px;
 }
@@ -709,10 +704,10 @@ a { color: inherit; }
 
 /* Estilos específicos para o texto do Robô Açaí */
 .revolucao-acai-text p {
-    font-size: 1.25em; /* Aumentar um pouco o texto */
-    text-align: center; /* Centralizar o texto */
-    line-height: 1.7; /* Melhorar o espaçamento da linha */
-    color: var(--cor-primaria); /* Garantir cor visível */
+    font-size: 1.25em;
+    text-align: center;
+    line-height: 1.7;
+    color: var(--cor-primaria); 
 }
 
 .revolucao-image img {
@@ -773,7 +768,6 @@ a { color: inherit; }
     width: 300%;
     height: 100%;
     object-fit: cover;
-    /* Transição para as imagens da galeria */
     transition: transform 0.5s ease-in-out;
 }
 
@@ -991,8 +985,8 @@ a { color: inherit; }
 .comunidade-text {
     text-align: left;
     padding: 1em;
-    display: flex; /* Para alinhar o botão */
-    flex-direction: column; /* Para empilhar texto e botão */
+    display: flex;
+    flex-direction: column;
 }
 
 .comunidade-text h3 {
@@ -1057,14 +1051,14 @@ a { color: inherit; }
     background-color: var(--cor-branca);
     border-radius: 10px;
     box-shadow: 0 8px 20px var(--cor-shadow);
-    padding: 3rem; /* Padding geral para o container */
+    padding: 3rem;
     margin-top: 3rem;
-    text-align: left; /* Restaura alinhamento para o texto */
+    text-align: left;
 }
 
 .usp-initiative .usp-title {
     font-size: 2.2em;
-    color: var(--cor-primaria); /* Cor principal para o título */
+    color: var(--cor-primaria);
     text-align: center;
     margin-bottom: 1.5em;
     border-bottom: 2px solid var(--cor-terciaria);
@@ -1076,21 +1070,21 @@ a { color: inherit; }
 
 .usp-content-grid {
     display: grid;
-    grid-template-columns: 2.5fr 1.5fr; /* Texto 2.5x mais largo que a imagem */
+    grid-template-columns: 2.5fr 1.5fr;
     gap: 2rem;
-    align-items: flex-start; /* Alinha o conteúdo ao topo das colunas */
+    align-items: flex-start;
     margin-top: 1.5em;
 }
 
 .usp-text {
     padding: 0;
-    display: flex; /* Para alinhar o botão */
-    flex-direction: column; /* Para empilhar texto e botão */
+    display: flex;
+    flex-direction: column;
 }
 
 .usp-text p {
     margin-bottom: 1em;
-    color: var(--cor-primaria); /* Cor principal para os parágrafos */
+    color: var(--cor-primaria);
     font-size: 1.05em;
 }
 
@@ -1110,13 +1104,13 @@ a { color: inherit; }
 .usp-image .image-caption,
 .usp-image .image-detail {
     font-size: 0.9em;
-    color: var(--cor-primaria); /* Cor principal para a legenda da imagem */
+    color: var(--cor-primaria);
     text-align: center;
     margin-top: 0.5em;
     font-style: italic;
 }
 
-/* --- NOVO BLOCO: usp-additional-content --- */
+/* --- usp-additional-content --- */
 .usp-additional-content {
     background-color: var(--cor-clara);
     border-radius: 10px;
@@ -1128,7 +1122,7 @@ a { color: inherit; }
 
 .usp-additional-content h4 {
     font-size: 1.8em;
-    color: var(--cor-primaria); /* Cor principal para o título */
+    color: var(--cor-primaria);
     text-align: center;
     margin-bottom: 1.2em;
     border-bottom: 2px solid var(--cor-terciaria);
@@ -1139,7 +1133,7 @@ a { color: inherit; }
 }
 
 .usp-additional-content p {
-    color: var(--cor-primaria); /* Cor principal para o texto */
+    color: var(--cor-primaria);
     font-size: 1.05em;
     margin-bottom: 1em;
     line-height: 1.6;
@@ -1167,8 +1161,8 @@ a { color: inherit; }
 }
 
 .pesquisa-afetiva .pesquisa-content {
-    display: flex; /* Para alinhar o botão */
-    flex-direction: column; /* Para empilhar texto e botão */
+    display: flex;
+    flex-direction: column;
 }
 .pesquisa-afetiva .pesquisa-content p {
     margin-bottom: 1em;
@@ -1198,7 +1192,7 @@ a { color: inherit; }
 }
 
 
-/* --- NOVA SEÇÃO: Sobre o Projeto & Recursos Visuais --- */
+/* --- Sobre o Projeto & Recursos Visuais --- */
 .about-project-section {
     background-color: var(--cor-branca);
     border-radius: 15px;
@@ -1214,10 +1208,10 @@ a { color: inherit; }
 
 .about-project-section .project-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas para desktop */
-    gap: 3rem; /* Espaçamento entre as colunas */
-    align-items: flex-start; /* Alinha o conteúdo ao topo */
-    margin-bottom: 3rem; /* Espaçamento antes da galeria */
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
     padding: 2rem;
     background-color: var(--cor-clara);
     border-radius: 10px;
@@ -1226,7 +1220,7 @@ a { color: inherit; }
 
 .about-project-section .project-info,
 .about-project-section .project-visual-tools {
-    text-align: left; /* Alinha o texto das colunas à esquerda */
+    text-align: left;
     padding: 1.5rem;
     border-radius: 8px;
     background-color: var(--cor-branca);
@@ -1238,12 +1232,11 @@ a { color: inherit; }
     font-size: 1.8em;
     color: var(--cor-primaria);
     margin-bottom: 1em;
-    text-align: center; /* Centraliza o título dentro da coluna */
+    text-align: center;
 }
 
-/* Alteração da cor do texto forte na seção de informações do projeto */
 .about-project-section .project-info ul li strong {
-    color: var(--cor-primaria); /* Verde escuro para melhor visibilidade */
+    color: var(--cor-primaria);
 }
 
 
@@ -1273,7 +1266,7 @@ a { color: inherit; }
 }
 
 .about-project-section .tool-item {
-    flex: 1 1 180px; /* Ajustado para 3 itens por linha em desktop, empilha em mobile */
+    flex: 1 1 180px;
     max-width: 200px;
     background-color: var(--cor-clara);
     border-radius: 10px;
@@ -1283,7 +1276,7 @@ a { color: inherit; }
 }
 
 .about-project-section .tool-item img {
-    width: 60px; /* Tamanho dos logos das ferramentas */
+    width: 60px;
     height: 60px;
     object-fit: contain;
     margin-bottom: 0.8em;
@@ -1321,7 +1314,7 @@ a { color: inherit; }
 
 .about-project-section .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Mais imagens por linha */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1.2rem;
     justify-content: center;
     padding: 1rem;
@@ -1329,7 +1322,7 @@ a { color: inherit; }
 
 .about-project-section .gallery-container img {
     width: 100%;
-    height: 120px; /* Altura ajustada para mais imagens */
+    height: 120px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -1443,18 +1436,18 @@ a { color: inherit; }
     margin-top: 1.5rem;
     font-size: 0.9em;
     color: var(--cor-clara);
-    display: flex; /* Para alinhar o ícone com o texto */
-    justify-content: center; /* Centraliza o conteúdo */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.5em; /* Espaçamento entre texto e ícone */
-    text-align: center; /* Garante que o texto se alinhe corretamente */
+    gap: 0.5em;
+    text-align: center;
 }
 
 /* Estilo para o ícone do rodapé */
 .footer-icon {
-    width: 20px; /* Tamanho do ícone */
+    width: 20px;
     height: 20px;
-    color: var(--cor-clara); /* Cor do ícone */
+    color: var(--cor-clara);
 }
 
 
@@ -1495,14 +1488,14 @@ a { color: inherit; }
     border-radius: 50px;
     font-weight: bold;
     font-size: 0.95em;
-    margin-top: 1.5em; /* Espaçamento em relação ao texto acima */
+    margin-top: 1.5em;
     border: 2px solid var(--cor-primaria);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    text-align: center; /* Garante que o texto dentro do botão esteja centralizado */
-    max-width: 100%; /* Garante que o botão não ultrapasse o container */
+    text-align: center;
+    max-width: 100%;
 }
 
 .section-button:hover {
@@ -1541,11 +1534,9 @@ a { color: inherit; }
     .revolucao-content-grid,
     .comunidade-grid,
     .usp-content-grid,
-    .about-project-section .project-content-grid { /* Em telas menores, volta para uma única coluna */
+    .about-project-section .project-content-grid {
         grid-template-columns: 1fr;
     }
-
-    /* O novo bloco de conteúdo ficará naturalmente abaixo no mobile */
 
     .cidade-layout {
         grid-template-columns: 1fr;
@@ -1572,7 +1563,6 @@ a { color: inherit; }
         text-align: center;
     }
 
-    /* Hero Section em Tablet */
     .hero-content {
         padding: 2.5rem 3rem;
     }
@@ -1587,13 +1577,12 @@ a { color: inherit; }
         padding: 0.9em 2.5em;
     }
     .about-project-section .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mais colunas em tablets */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
     .about-project-section .tool-item {
-        flex: 1 1 150px; /* Ajuste para tablets */
+        flex: 1 1 150px;
     }
 
-    /* Ajuste para botões de seção em tablets */
     .section-button {
         font-size: 0.9em;
         padding: 0.7em 1.2em;
@@ -1601,12 +1590,10 @@ a { color: inherit; }
 }
 
 @media screen and (max-width: 768px) {
-    /* Exibe o ícone do menu hambúrguer */
     .nav-toggle-label {
         display: flex;
     }
 
-    /* Oculta o menu de navegação principal em mobile */
     .main-nav {
         max-height: 0;
         opacity: 0;
@@ -1653,7 +1640,6 @@ a { color: inherit; }
         transform: none;
     }
 
-    /* Intro Section em Mobile */
     .intro-title {
         font-size: 4em;
         letter-spacing: 4px;
@@ -1673,7 +1659,6 @@ a { color: inherit; }
         padding: 12px 25px;
     }
 
-    /* Hero Section em Mobile */
     .hero-content {
         padding: 1.5rem 2rem;
     }
@@ -1713,43 +1698,40 @@ a { color: inherit; }
         right: 20px;
     }
 
-    /* Ajustes específicos para títulos que podem escapar no mobile */
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
-        font-size: 1.8em; /* Diminui ainda mais em telas menores */
+        font-size: 1.8em;
         padding-left: 0.5em;
         padding-right: 0.5em;
-        max-width: 95%; /* Garante que não ultrapasse a largura do pai */
+        max-width: 95%;
         margin-left: auto;
         margin-right: auto;
-        word-break: break-word; /* Força quebra de linha em palavras muito longas */
+        word-break: break-word;
     }
     .usp-title {
-        font-size: 1.6em; /* Ainda menor para este título específico */
+        font-size: 1.6em;
     }
     .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
-        font-size: 1.5em; /* Garante que os subtítulos se ajustem */
+        font-size: 1.5em;
         word-break: break-word;
     }
 
     .about-project-section .tool-item {
-        flex: 1 1 100%; /* Empilha os itens em telas menores */
+        flex: 1 1 100%;
         max-width: 100%;
     }
     .about-project-section .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Mais colunas em celulares */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 
-    /* Ajuste para botões de seção em mobile */
     .section-button {
         font-size: 0.85em;
         padding: 0.6em 1em;
-        width: fit-content; /* Permite que o botão se ajuste ao texto */
-        align-self: center; /* Centraliza o botão dentro da coluna flex */
+        width: fit-content;
+        align-self: center;
     }
 }
 
 @media screen and (max-width: 480px) {
-    /* Intro Section em Mobile Pequeno */
     .intro-title {
         font-size: 3em;
         letter-spacing: 2px;
@@ -1769,7 +1751,6 @@ a { color: inherit; }
         padding: 10px 20px;
     }
 
-    /* Hero Section em Mobile Pequeno */
     .hero-content {
         padding: 1rem 1.5rem;
     }
@@ -1825,7 +1806,6 @@ a { color: inherit; }
         gap: 1.5rem;
     }
 
-    /* Ajustes ainda menores para títulos em telas muito pequenas */
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
         font-size: 1.5em;
     }
@@ -1844,17 +1824,15 @@ a { color: inherit; }
 }
 
 /* --- Placeholder Images (Substitua pelos seus arquivos reais em assets/images/) --- */
-/* PARA USAR SUAS IMAGENS REAIS, REMOVA/COMENTE AS LINHAS 'content: url(...)' ABAIXO E COLOQUE SEUS ARQUIVOS NA PASTA 'assets/images/' */
-/* Exemplo: img[src*="hero-bg.png"] { content: normal; } se você tiver a imagem real */
 img[src*="hero-bg.png"] { content: url('https://placehold.co/1920x1080/003600/94b994?text=[Fundo Hero]'); }
 img[src*="campo-main.png"] { content: url('https://placehold.co/1200x600/6A8E6A/F9FAF4?text=[Campo Principal]'); }
 img[src*="campo-cultivo.png"] { content: url('https://placehold.co/600x400/94b994/003600?text=[Cultivo Sustentável]'); }
 img[src*="campo-colheita.png"] { content: url('https://placehold.co/600x400/003600/94b994?text=[Colheita]'); }
-img[src*="robo-acai.png"] { content: url('https://placehold.co/600x400/8B4513/FFFFFF?text=[Robô Açaí]'); }
+img[src*="robo-acai.png"] { content: normal; }
 img[src*="cidade-luzes.png"] { content: url('https://placehold.co/800x600/2C3E50/ECF0F1?text=[Cidade Luzes]'); }
 img[src*="cidade-verde.png"] { content: url('https://placehold.co/800x600/27AE60/FFFFFF?text=[Cidade Verde]'); }
 img[src*="cidade-cultura.png"] { content: url('https://placehold.co/800x600/8E44AD/FFFFFF?text=[Cidade Cultura]'); }
-img[src*="horta-urbana.png"] { content: url('https://placehold.co/600x400/6A8E6A/FFFFFF?text=[Horta Urbana]'); }
-img[src*="horta-fmusp.png"] { content: url('https://placehold.co/600x400/4CAF50/FFFFFF?text=[Horta FMUSP]'); }
-img[src*="tool-canva.png"] { content: url('https://placehold.co/80x80/00C4CC/FFFFFF?text=Canva'); }
-img[src*="tool-gimp.png"] { content: url('https://placehold.co/80x80/5C5C5C/FFFFFF?text=GIMP'); }
+img[src*="horta-urbana.jpg"] { content: normal; }
+img[src*="horta-fmusp.jpg"] { content: normal; }
+img[src*="tool-canva.png"] { content: normal; }
+img[src*="tool-gimp.png"] { content: normal; }

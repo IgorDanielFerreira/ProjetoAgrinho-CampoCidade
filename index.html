@@ -11,39 +11,33 @@
 </head>
 <body>
     <script>
-        // Desativa a restauração automática do scroll do navegador
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
 
         window.onload = function() {
-            // Garante que o scroll esteja no topo imediatamente no carregamento
             window.scrollTo(0, 0);
-            document.body.scrollTop = 0; // Para Safari
-            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
 
             const skipIntroCheckbox = document.getElementById('skip-intro');
             const enterSiteButton = document.getElementById('enter-site-button');
             const introAnimationContainer = document.getElementById('intro-animation-container');
 
-            // Adiciona listener para quando o botão "Entrar no Site" é clicado
             if (enterSiteButton) {
                 enterSiteButton.addEventListener('click', function() {
-                    // Pequeno atraso para permitir que a transição da intro comece
-                    // (1200ms = duração da transição de opacidade/transform da intro)
                     setTimeout(() => {
-                        document.body.style.overflow = 'auto'; // Reabilita o scroll para o body
-                        document.documentElement.style.overflow = 'auto'; // Reabilita o scroll para o elemento html
-                        window.scrollTo(0, 0); // Força o scroll para o topo novamente
-                    }, 1200); // Deve ser igual ou ligeiramente maior que a duração da transição da intro
+                        document.body.style.overflow = 'auto';
+                        document.documentElement.style.overflow = 'auto';
+                        window.scrollTo(0, 0);
+                    }, 1200);
                 });
             }
 
-            // Oculta a intro imediatamente se a checkbox já estiver marcada (em caso de recarga com intro já pulada)
             if (skipIntroCheckbox.checked) {
                 introAnimationContainer.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Garante que o scroll esteja habilitado
-                document.documentElement.style.overflow = 'auto'; // Garante que o scroll esteja habilitado
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
             }
         };
     </script>
@@ -69,7 +63,6 @@
             <svg class="header-logo-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 18 2c1 1.5 1.5 3.3.1 4.7C17.3 7.8 15.3 9.8 12 13c-2.1 2.1-3.6 3.6-3.5 5.6a2 2 0 0 0 2 2Z"/><path d="M12 13c-1.2-1.2-2.5-2.5-3.5-3.5a4 4 0 1 1 6-6"/></svg>
             <a href="#hero">Harmonia Natural</a>
         </div>
-        <!-- IMPORTANTE: label e input do hambúrguer devem vir ANTES da tag <nav> para o CSS funcionar com ~ -->
         <label for="nav-toggle" class="nav-toggle-label">
             <span class="hamburger"></span>
             <span class="hamburger"></span>
@@ -234,7 +227,7 @@
                     <a href="https://escolhas.org/hortas-urbanas-geram-impactos-sociais-na-zona-leste-de-sao-paulo/" target="_blank" class="section-button">Ver essa notícia incrível no site escolhas.org</a>
                 </div>
                 <div class="comunidade-image">
-                    <img src="assets/images/horta-urbana.png" alt="Pessoas trabalhando em horta urbana comunitária">
+                    <img src="assets/images/horta-urbana.jpg" alt="Pessoas trabalhando em horta urbana comunitária">
                     <span class="image-caption">Horta urbana florescendo na Zona Leste de São Paulo.</span>
                     <p class="image-detail">Produção 100% orgânica em áreas urbanas.</p>
                 </div>
@@ -252,20 +245,17 @@
                         <a href="https://jornal.usp.br/ciencias/hortas-comunitarias-resistem-a-urbanizacao-na-maior-metropole-do-brasil/" target="_blank" class="section-button">Conheça o Projeto da USP no jornal.usp.br</a>
                     </div>
                     <div class="usp-image">
-                        <img src="assets/images/horta-fmusp.png" alt="Horta da Faculdade de Medicina da USP na laje">
+                        <img src="assets/images/horta-fmusp.jpg" alt="Horta da Faculdade de Medicina da USP na laje">
                         <span class="image-caption">Horta da FMUSP: Produção orgânica no coração da cidade.</span>
                         <p class="image-detail">Iniciativa exemplar de sustentabilidade.</p>
                     </div>
                 </div>
-                <!-- NOVO BLOCO DE CONTEÚDO -->
                 <div class="usp-additional-content">
                     <h4>Impacto e Expansão da Agricultura Urbana da USP</h4>
                     <p>A USP gera conhecimento e projetos concretos para a comunidade. O GEAU atua em <strong>pesquisas estratégicas</strong>, <strong>parcerias internacionais</strong>, <strong>educação</strong> (com a horta da FMUSP) e <strong>promoção de PANCs</strong>.</p>
                     <p>Essas iniciativas inspiram novas hortas, expandindo a rede no Brasil. A USP mostra como transformar espaços urbanos em centros de produção saudável e cidadania, fortalecendo a conexão campo-cidade.</p>
                 </div>
-                <!-- Fim do NOVO BLOCO -->
             </div>
-            <!-- Fim da Sub-seção USP -->
             <hr class="section-separator">
 
             <!-- SUB-SEÇÃO: Benefícios Simbólicos e Afetivos das Hortas Comunitárias -->
@@ -274,15 +264,13 @@
                 <div class="pesquisa-content">
                     <p>Hortas comunitárias cultivam <strong>conexões humanas e bem-estar psicológico</strong>. Pesquisa revela: <strong>Agradabilidade</strong>, <strong>Restauração</strong> e <strong>Pertencimento</strong>. Conexão com a natureza e interação social melhoram saúde física e mental, aliviando estresse.</p>
                     <p>São territórios de saúde, sustentabilidade e laços afetivos, onde agroecologia e psicologia ambiental caminham juntas.</p>
-                    <!-- NOVO BOTÃO DE LINK -->
                     <a href="https://doi.org/10.1590/0103-11042023E219" target="_blank" class="section-button">Leia a Pesquisa Completa no scielo.br</a>
                 </div>
             </div>
-            <!-- Fim da Sub-seção Pesquisa Afetiva -->
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: Sobre o Projeto & Recursos Visuais -->
+    <!-- Sobre o Projeto & Recursos Visuais -->
     <section id="sobre-o-projeto" class="content-section about-project-section">
         <h2 class="section-title">Sobre o Projeto & Recursos Visuais</h2>
         <div class="project-content-grid">
@@ -317,7 +305,6 @@
         <div class="visual-gallery">
             <h4>Galeria de Imagens do Projeto (Placeholders)</h4>
             <div class="gallery-container">
-                <!-- Todas as imagens PLACEHOLDER do site para demonstração -->
                 <img src="assets/images/hero-bg.png" alt="Fundo da Seção Hero">
                 <img src="assets/images/campo-main.png" alt="Imagem Principal do Campo">
                 <img src="assets/images/campo-cultivo.png" alt="Imagem de Cultivo">
@@ -326,13 +313,12 @@
                 <img src="assets/images/cidade-luzes.png" alt="Imagem da Cidade à Noite">
                 <img src="assets/images/cidade-verde.png" alt="Imagem de Parque Urbano">
                 <img src="assets/images/cidade-cultura.png" alt="Imagem de Cultura Urbana">
-                <img src="assets/images/horta-urbana.png" alt="Imagem de Horta Urbana">
-                <img src="assets/images/horta-fmusp.png" alt="Imagem da Horta FMUSP">
+                <img src="assets/images/horta-urbana.jpg" alt="Imagem de Horta Urbana">
+                <img src="assets/images/horta-fmusp.jpg" alt="Imagem da Horta FMUSP">
             </div>
             <p class="gallery-disclaimer">As imagens acima são <strong>placeholders</strong> para ilustrar o conteúdo visual do projeto. Foram utilizadas para preencher o site para avaliação do concurso, demonstrando o tipo de arte e design que seria desenvolvido. O foco do projeto está na estrutura, conteúdo textual e design responsivo, todos criados com as ferramentas mencionadas. As imagens reais seriam de autoria própria.</p>
         </div>
     </section>
-    <!-- Fim da NOVA SEÇÃO Sobre o Projeto & Recursos Visuais -->
 
     <!-- Seção de Contato/Rodapé -->
     <footer id="contato" class="contact-footer">
