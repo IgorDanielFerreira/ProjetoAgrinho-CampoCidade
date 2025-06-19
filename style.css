@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--cor-primaria);
     line-height: 1.2;
     word-break: break-word;
-    overflow-wrap: break-word;
+    overflow-wrap: break-word; 
 }
 
 h1 { font-size: 3.5em; }
@@ -96,7 +96,7 @@ a { color: inherit; }
     margin-right: auto;
 }
 
-/* --- Animação de Boas-Vindas Profissional --- */
+/* --- Animação de Boas-Vindas --- */
 .skip-intro-checkbox {
     display: none;
 }
@@ -125,7 +125,6 @@ a { color: inherit; }
     animation: gradientShift 10s infinite alternate ease-in-out;
     transition: none;
 }
-
 
 
 @keyframes gradientShift {
@@ -274,6 +273,13 @@ a { color: inherit; }
     gap: 0.5em;
 }
 
+/* Estilos para a imagem do favicon no cabeçalho */
+.header-logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
 #main-header .logo a {
     font-family: var(--fonte-titulo);
     font-size: 2.2em;
@@ -284,34 +290,13 @@ a { color: inherit; }
     animation-range: 0 200px;
 }
 
-/* Estilo para o ícone do cabeçalho */
-.header-logo-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--cor-branca);
-    transition: color 1s linear forwards;
-    animation-timeline: scroll();
-    animation-range: 0 200px;
-}
-
 @keyframes logoColorChange {
     to {
         color: var(--cor-primaria);
     }
 }
-.header-logo-icon {
-    animation: headerIconColorChange 1s linear forwards;
-    animation-timeline: scroll();
-    animation-range: 0 200px;
-}
-@keyframes headerIconColorChange {
-    to {
-        color: var(--cor-primaria);
-    }
-}
 
-
-/* Menu Desktop (Padrão para telas grandes) */
+/* --- Menu Desktop (Padrão para telas grandes) --- */
 .main-nav {
     display: flex;
     opacity: 1;
@@ -391,7 +376,6 @@ a { color: inherit; }
     display: none;
 }
 
-/* Transforma o ícone do hambúrguer em X */
 .nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -414,6 +398,7 @@ a { color: inherit; }
     background-color: var(--cor-branca);
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 80px;
 }
 
 /* --- Hero Section --- */
@@ -548,7 +533,9 @@ a { color: inherit; }
     grid-column: 1 / 3;
     height: 400px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     background-color: var(--cor-secundaria);
 }
 
@@ -563,6 +550,7 @@ a { color: inherit; }
     transform: translateY(100%);
     opacity: 0;
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    text-align: center;
 }
 
 .campo-main-image:hover .image-overlay {
@@ -579,6 +567,7 @@ a { color: inherit; }
 .campo-main-image .image-overlay p {
     font-size: 1em;
     color: var(--cor-clara);
+    margin-bottom: 0.5em;
 }
 
 .campo-text-block {
@@ -616,6 +605,19 @@ a { color: inherit; }
     opacity: 1;
 }
 
+/* Estilo para o link do Instagram dentro do overlay */
+.image-overlay .instagram-link {
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.image-overlay .instagram-link:hover {
+    color: var(--cor-branca);
+}
+
+
 /* Efeitos de imagem avançados (CSS Transform + Filter) */
 .image-effect-zoom:hover img {
     transform: scale(1.1);
@@ -627,7 +629,7 @@ a { color: inherit; }
     filter: grayscale(100%);
 }
 
-/* --- Nova Seção de Revoluções Agrícolas --- */
+/* --- Revoluções Agrícolas --- */
 .revolucoes-agricolas {
     background-color: var(--cor-branca);
     border-radius: 10px;
@@ -707,7 +709,7 @@ a { color: inherit; }
     font-size: 1.25em;
     text-align: center;
     line-height: 1.7;
-    color: var(--cor-primaria); 
+    color: var(--cor-primaria);
 }
 
 .revolucao-image img {
@@ -1046,7 +1048,7 @@ a { color: inherit; }
     margin-right: auto;
 }
 
-/* --- Sub-seção: Iniciativa USP - Estilos Reajustados --- */
+/* --- Sub-seção: Iniciativa USP --- */
 .usp-initiative {
     background-color: var(--cor-branca);
     border-radius: 10px;
@@ -1079,7 +1081,7 @@ a { color: inherit; }
 .usp-text {
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 .usp-text p {
@@ -1443,11 +1445,11 @@ a { color: inherit; }
     text-align: center;
 }
 
-/* Estilo para o ícone do rodapé */
-.footer-icon {
+/* Estilos para a imagem do favicon no rodapé */
+.footer-logo-img {
     width: 20px;
     height: 20px;
-    color: var(--cor-clara);
+    object-fit: contain;
 }
 
 
@@ -1538,6 +1540,7 @@ a { color: inherit; }
         grid-template-columns: 1fr;
     }
 
+
     .cidade-layout {
         grid-template-columns: 1fr;
         padding: 1.5rem;
@@ -1563,6 +1566,7 @@ a { color: inherit; }
         text-align: center;
     }
 
+    /* Hero Section em Tablet */
     .hero-content {
         padding: 2.5rem 3rem;
     }
@@ -1583,6 +1587,7 @@ a { color: inherit; }
         flex: 1 1 150px;
     }
 
+    /* Ajuste para botões de seção em tablets */
     .section-button {
         font-size: 0.9em;
         padding: 0.7em 1.2em;
@@ -1590,10 +1595,12 @@ a { color: inherit; }
 }
 
 @media screen and (max-width: 768px) {
+    /* Exibe o ícone do menu hambúrguer */
     .nav-toggle-label {
         display: flex;
     }
 
+    /* Oculta o menu de navegação principal em mobile */
     .main-nav {
         max-height: 0;
         opacity: 0;
@@ -1640,54 +1647,56 @@ a { color: inherit; }
         transform: none;
     }
 
+    /* Intro Section em Mobile */
     .intro-title {
-        font-size: 4em;
-        letter-spacing: 4px;
+        font-size: 3.5em;
+        letter-spacing: 3px;
     }
     .intro-subtitle {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
     .intro-message {
-        font-size: 1.2em;
+        font-size: 1.1em;
         max-width: 90%;
     }
     .intro-line {
-        width: 200px;
+        width: 180px;
     }
     .skip-intro-button {
-        font-size: 1.1em;
-        padding: 12px 25px;
+        font-size: 1em;
+        padding: 10px 22px;
     }
 
+    /* Hero Section em Mobile */
     .hero-content {
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 1.5rem;
     }
     .hero-content h1 {
-        font-size: 3.5em;
+        font-size: 3em;
         letter-spacing: 2px;
     }
     .hero-content p {
-        font-size: 1.2em;
+        font-size: 1.1em;
         max-width: 90%;
     }
     .hero-button {
-        font-size: 1.1em;
-        padding: 0.8em 2em;
+        font-size: 1em;
+        padding: 0.7em 1.8em;
     }
 
-    h1 { font-size: 2.8em; }
-    h2 { font-size: 2em; }
-    p { font-size: 1em; }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    p { font-size: 0.95em; }
 
     .content-section {
-        padding: 4rem 1.5rem;
+        padding: 3rem 1rem;
     }
 
     .contact-form {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
     .footer-info {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
     .back-to-top-button {
@@ -1698,20 +1707,21 @@ a { color: inherit; }
         right: 20px;
     }
 
+    /* Ajustes específicos para títulos que podem escapar no mobile */
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
-        font-size: 1.8em;
+        font-size: 1.6em;
         padding-left: 0.5em;
         padding-right: 0.5em;
-        max-width: 95%;
+        max-width: 98%;
         margin-left: auto;
         margin-right: auto;
         word-break: break-word;
     }
     .usp-title {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
     .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
-        font-size: 1.5em;
+        font-size: 1.4em;
         word-break: break-word;
     }
 
@@ -1720,113 +1730,122 @@ a { color: inherit; }
         max-width: 100%;
     }
     .about-project-section .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 
+    /* Ajuste para botões de seção em mobile */
     .section-button {
-        font-size: 0.85em;
-        padding: 0.6em 1em;
-        width: fit-content;
-        align-self: center;
+        font-size: 0.8em;
+        padding: 0.5em 0.8em;
     }
 }
 
 @media screen and (max-width: 480px) {
+    /* Intro Section em Mobile Pequeno */
     .intro-title {
-        font-size: 3em;
-        letter-spacing: 2px;
+        font-size: 2.8em;
+        letter-spacing: 1px;
     }
     .intro-subtitle {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     .intro-message {
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .intro-line {
-        width: 150px;
-        margin: 1em auto;
+        width: 120px;
+        margin: 0.8em auto;
     }
     .skip-intro-button {
-        font-size: 0.9em;
-        padding: 10px 20px;
+        font-size: 0.8em;
+        padding: 8px 18px;
+        bottom: 30px;
     }
 
+    /* Hero Section em Mobile Pequeno */
     .hero-content {
-        padding: 1rem 1.5rem;
+        padding: 1rem;
     }
     .hero-content h1 {
-        font-size: 2.8em;
+        font-size: 2.5em;
     }
     .hero-content p {
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .hero-button {
-        font-size: 1.1em;
-        padding: 0.7em 1.8em;
+        font-size: 0.9em;
+        padding: 0.6em 1.5em;
     }
 
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.6em; }
+    p { font-size: 0.9em; }
+
     .campo-main-image {
-        height: 250px;
+        height: 200px;
     }
     .campo-main-image .image-overlay {
-        padding: 1em;
+        padding: 0.8em;
     }
     .campo-main-image .image-overlay h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
     .campo-sub-image {
-        height: 150px;
+        height: 120px;
     }
     .campo-sub-image .image-caption {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     .cidade-gallery {
-        height: 280px;
+        height: 220px;
     }
 
     .conexao-card {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     .conexao-card .card-icon {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
     .conexao-card h3 {
         font-size: 1.5em;
     }
     .conexao-card p {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     .footer-content {
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
+    /* Ajustes ainda menores para títulos em telas muito pequenas */
     .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .usp-title {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
     .about-project-section .tool-item h3 {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
     .about-project-section .visual-gallery h4 {
-        font-size: 1.6em;
+        font-size: 1.4em;
+    }
+    .section-button {
+        font-size: 0.75em;
+        padding: 0.4em 0.7em;
     }
 }
 
-/* --- Placeholder Images (Substitua pelos seus arquivos reais em assets/images/) --- */
+/* --- Placeholder Images --- */
 img[src*="hero-bg.png"] { content: url('https://placehold.co/1920x1080/003600/94b994?text=[Fundo Hero]'); }
-img[src*="campo-main.png"] { content: url('https://placehold.co/1200x600/6A8E6A/F9FAF4?text=[Campo Principal]'); }
-img[src*="campo-cultivo.png"] { content: url('https://placehold.co/600x400/94b994/003600?text=[Cultivo Sustentável]'); }
+img[src*="campo-main.jpg"] { content: normal; }
+img[src*="campo-cultivo.png"] { content: normal; }
 img[src*="campo-colheita.png"] { content: url('https://placehold.co/600x400/003600/94b994?text=[Colheita]'); }
 img[src*="robo-acai.png"] { content: normal; }
 img[src*="cidade-luzes.png"] { content: url('https://placehold.co/800x600/2C3E50/ECF0F1?text=[Cidade Luzes]'); }
