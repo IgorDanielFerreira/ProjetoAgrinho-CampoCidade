@@ -29,7 +29,6 @@ Este projeto foi construído utilizando tecnologias web fundamentais:
 
 -   **HTML5:** Para a estrutura e conteúdo da página.
 -   **CSS3:** Para o design, layout responsivo, animações e efeitos visuais.
--   **JavaScript:** Para controle de comportamento da página, como a animação de introdução e o reset de scroll.
 
 ## Como Executar o Projeto
 
@@ -85,6 +84,7 @@ Este projeto foi desenvolvido por um **estudante do Ensino Médio** para o **Con
 ### Informações do Projeto
 
 -   **Autor:** Igor Daniel Ferreira
+-   **Localidade:** Ortigueira, Paraná, Brasil
 -   **Instituição:** CEAM | Colégio Estadual Altair Mongruel
 -   **Concurso:** Agrinho 2025 - Tema "Festejando a conexão campo cidade"
 -   **Ano:** 2025
@@ -98,25 +98,7 @@ Todas as imagens e elementos visuais no site são **placeholders** (elementos te
 
 ### Galeria de Imagens do Projeto (Placeholders)
 
-Apresentamos a seguir uma galeria com exemplos das imagens placeholder utilizadas em todo o site. Elas demonstram o tipo de arte e design que foi pensado para o projeto.
-
--   ![Image of Fundo da Seção Hero](https://placehold.co/1920x1080/003600/94b994?text=[Fundo+Hero])
--   ![Image of Imagem Principal do Campo](https://placehold.co/1200x600/6A8E6A/F9FAF4?text=[Campo+Principal])
--   ![Image of Imagem de Cultivo](https://placehold.co/600x400/94b994/003600?text=[Cultivo+Sustentável])
--   ![Image of Imagem de Colheita](https://placehold.co/600x400/003600/94b994?text=[Colheita])
--   ![Image of Cidade Luzes](https://placehold.co/800x600/2C3E50/ECF0F1?text=[Cidade+Luzes])
--   ![Image of Cidade Verde](https://placehold.co/800x600/27AE60/FFFFFF?text=[Cidade+Verde])
--   ![Image of Cidade Cultura](https://placehold.co/800x600/8E44AD/FFFFFF?text=[Cidade+Cultura])
-
-## Contribuições e Melhorias Futuras
-
-Ideias para futuras melhorias incluem:
-
--   Adicionar mais exemplos de iniciativas de conexão campo-cidade em outras regiões.
--   Adicionar mais ideias da agricultura atual, inovações etc.
--   Galerias de imagens mais dinâmicas com mais fotos do projeto.
--   Otimizar a performance e acessibilidade.
--   Expandir a seção "Comunidade em Ação" com estudos de caso detalhados.
+Apresentamos a seguir uma galeria com imagens placeholder utilizadas em todo o site para demonstração do design e tipo de arte pensados para o projeto.
 
 ---
 *Desenvolvido com paixão por um estudante do Ensino Médio para o Concurso Agrinho 2025.*
