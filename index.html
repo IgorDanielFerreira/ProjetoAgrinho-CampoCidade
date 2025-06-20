@@ -7,7 +7,6 @@
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <input type="checkbox" id="skip-intro" class="skip-intro-checkbox">
@@ -36,6 +35,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li><a href="#secao-campo">Campo</a></li>
+                    <li><a href="#secao-revolucao">Revoluções</a></li>
                     <li><a href="#secao-cidade">Cidade</a></li>
                     <li><a href="#secao-conexao">A Conexão</a></li>
                     <li><a href="#secao-comunidade">Comunidade</a></li>
@@ -59,11 +59,11 @@
         <section id="secao-campo" class="content-section campo-section">
             <h2 class="section-title">A Alma do Campo</h2>
             <div class="campo-grid">
-                <div class="campo-item campo-main-image">
+                <div class="campo-item campo-main-image image-hover-zoom-grayscale image-zoom-on-hover">
                     <img src="assets/images/campo-main.jpg" alt="Duas colheitadeiras colhendo soja, representando a Agroeidam de Ortigueira, Paraná.">
                     <div class="image-overlay">
                         <h3>A Força da Agricultura Local</h3>
-                        <p>Um tributo à <strong>Agroeidam</strong>, família agropecuária de Ortigueira, Paraná, que cultiva com paixão e dedicação, alimentando nossa nação.</p>
+                        <p>Um tributo à <strong>Agroeidam</strong>, família agro de Ortigueira, Paraná, que cultiva com paixão e dedicação, alimentando nossa nação.</p>
                         <p>Conheça mais sobre o trabalho deles no Instagram: <a href="https://www.instagram.com/agroeidam/" target="_blank" class="instagram-link">@agroeidam</a></p>
                     </div>
                 </div>
@@ -71,17 +71,17 @@
                     <p>O campo é a base de tudo, berço da vida e da alimentação, provendo recursos essenciais.</p>
                     <p>Da agricultura familiar à larga escala, a vida rural pulsa em harmonia com os ciclos naturais, fornecendo o que chega às nossas mesas.</p>
                 </div>
-                <div class="campo-item campo-sub-image image-effect-zoom">
+                <div class="campo-item campo-sub-image image-effect-rotate">
                     <img src="assets/images/campo-cultivo.jpg" alt="Mãos Cuidando de um Cultivo Sustentável">
                     <div class="image-caption">Manejo Sustentável.</div>
                 </div>
-                <div class="campo-item campo-sub-image image-effect-rotate">
+                <div class="campo-item campo-sub-image image-effect-zoom image-zoom-on-hover">
                     <img src="assets/images/campo-colheita.jpg" alt="Colheita Consciente: Frutos do Trabalho e Respeito à Terra">
                     <div class="image-caption">Colheita Consciente.</div>
                 </div>
             </div>
 
-            <div class="revolucoes-agricolas">
+            <div id="secao-revolucao" class="revolucoes-agricolas">
                 <h3 class="revolucoes-title">Revoluções na Agricultura: Do Arado ao Robô</h3>
                 <p>A história da agricultura é marcada por saltos tecnológicos que transformaram a produção de alimentos.</p>
                 <hr class="section-separator">
@@ -92,21 +92,21 @@
                         <div class="revolucao-text revolucao-acai-text">
                             <p>A colheita do açaí, um fruto vital para a economia e cultura da região amazônica, sempre foi uma tarefa árdua e perigosa para os coletores, que precisavam escalar palmeiras altas. O inovador <strong>Robô Açaí</strong> surge para transformar essa realidade, garantindo a <strong>segurança</strong> dos trabalhadores ao eliminar os riscos em altura.</p>
                             <p>Além da segurança, o robô <strong>otimiza a eficiência</strong> da colheita, assegurando que o açaí seja coletado no ponto ideal de maturação, o que melhora a qualidade do produto. Ele também <strong>reduz significativamente o desperdício</strong> e os danos à fruta. Este projeto é um exemplo claro de como a <strong>tecnologia urbana</strong> pode ser aplicada diretamente para resolver desafios do campo, criando soluções localizadas que beneficiam tanto os produtores rurais quanto os consumidores nas cidades.</p>
-                            <div class="flex justify-center mt-6">
+                            <div class="button-container">
                                 <a
                                   href="https://www.belemnegocios.com/post/empresa-lanca-o-primeiro-robo-de-colheita-de-acai-durante-o-festival-do-acai-em-belem"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105 section-button"
+                                  class="section-button"
                                 >
                                   Ver essa tecnologia no noticiário belemnegocios.com
-                                  <svg class="ml-2 -mr1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                  <svg class="button-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                   </svg>
                                 </a>
                             </div>
                         </div>
-                        <div class="revolucao-image">
+                        <div class="revolucao-image image-hover-pulse image-zoom-on-hover">
                             <img src="assets/images/robo-acai.png" alt="Robô Colhendo Açaí na Amazônia">
                             <span class="image-caption">Robô Açaí: Inovação na colheita amazônica.</span>
                         </div>
@@ -120,21 +120,21 @@
                         <div class="revolucao-text revolucao-morango-text">
                             <p>A colheita de frutas delicadas como o morango é um processo intensivo em mão de obra e exige grande cuidado para evitar danos. O <strong>Robô de Morango da Harvest Croo</strong> é uma solução inovadora que utiliza visão computacional e braços robóticos suaves para identificar, colher e embalar morangos maduros com precisão.</p>
                             <p>Essa tecnologia não só resolve o desafio da escassez de mão de obra, mas também <strong>reduz o desperdício</strong> de frutos e <strong>melhora a eficiência</strong> operacional. É um avanço crucial para a sustentabilidade e produtividade na fruticultura, conectando a inovação tecnológica da cidade diretamente às necessidades do campo.</p>
-                            <div class="flex justify-center mt-6">
+                            <div class="button-container">
                                 <a
                                   href="https://www.harvestcroorobotics.com/"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105 section-button"
+                                  class="section-button"
                                 >
                                   Saiba mais sobre a Harvest Croo
-                                  <svg class="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                  <svg class="button-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                   </svg>
                                 </a>
                             </div>
                         </div>
-                        <div class="revolucao-image">
+                        <div class="revolucao-image image-hover-shadow-pop image-zoom-on-hover">
                             <img src="assets/images/robo-morango.jpg" alt="Robô colhendo morangos">
                             <span class="image-caption">Robô de Morango da Harvest Croo em ação.</span>
                         </div>
@@ -170,21 +170,21 @@
                     <input type="radio" name="cidade-nav" id="img3">
 
                     <div class="gallery-images">
-                        <div class="image-wrapper">
+                        <div class="image-wrapper image-hover-glow">
                             <img src="assets/images/cidade-luzes.jpg" alt="Horizonte da Cidade à Noite">
                             <div class="hover-overlay">
                                 <h3>Cidade Luzes</h3>
                                 <p>O vibrante horizonte urbano à noite, um símbolo da energia, inovação e das infinitas possibilidades que a cidade oferece. Representa o pulso acelerado e as oportunidades que atraem pessoas e impulsionam o progresso.</p>
                             </div>
                         </div>
-                        <div class="image-wrapper">
+                        <div class="image-wrapper image-hover-glow">
                             <img src="assets/images/cidade-verde.jpg" alt="Parque Urbano com Pessoas">
                             <div class="hover-overlay">
                                 <h3>Espaços Verdes Urbanos</h3>
                                 <p>A fusão harmoniosa entre o concreto e a natureza, destacando parques e áreas verdes que promovem bem-estar, lazer e uma conexão vital com o ambiente natural dentro do cenário urbano. Um lembrete da importância da sustentabilidade nas cidades.</p>
                             </div>
                         </div>
-                        <div class="image-wrapper">
+                        <div class="image-wrapper image-hover-glow">
                             <img src="assets/images/cidade-cultura.jpg" alt="Edifícios Modernos e Arte Urbana">
                             <div class="hover-overlay">
                                 <h3>Centro Cultural e Criativo</h3>
@@ -257,13 +257,18 @@
                     <div class="comunidade-text">
                         <h3>Cultivando o Futuro na Cidade</h3>
                         <p>Mãos dedicadas redefinem paisagismo urbano e segurança alimentar. Transformam terrenos e escolas em centros de produção <strong>100% orgânicos</strong>, fortalecendo renda e segurança alimentar.</p>
-                        <p>Revitalizam espaços, fomentam educação ambiental e criam laços comunitários. Prova que agricultura comunitária prospera na maior cidade, construindo futuro sustentável.</p>
-                        <a href="https://escolhas.org/hortas-urbanas-geram-impactos-sociais-na-zona-leste-de-sao-paulo/" target="_blank" class="section-button">Ver essa notícia incrível no site escolhas.org</a>
+                        <a href="https://escolhas.org/hortas-urbanas-geram-impactos-sociais-na-zona-leste-de-sao-paulo/" target="_blank" class="section-button">Ver essa notícia incrível no site escolhas.org
+                            <svg class="button-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                        </a>
                     </div>
-                    <div class="comunidade-image">
+                    <div class="comunidade-image image-hover-overlay-slide image-zoom-on-hover">
                         <img src="assets/images/horta-urbana.jpg" alt="Pessoas trabalhando em horta urbana comunitária">
-                        <span class="image-caption">Horta urbana florescendo na Zona Leste de São Paulo.</span>
-                        <p class="image-detail">Produção 100% orgânica em áreas urbanas.</p>
+                        <div class="hover-overlay">
+                            <span class="image-caption">Horta urbana florescendo na Zona Leste de São Paulo.</span>
+                            <p class="image-detail">Produção 100% orgânica em áreas urbanas.</p>
+                        </div>
                     </div>
                 </div>
                 <hr class="section-separator">
@@ -275,9 +280,13 @@
                         <div class="usp-text">
                             <p>O <strong>Grupo de Estudos em Agricultura Urbana (GEAU)</strong> da USP destaca-se em soluções inovadoras. Desde 2016, o GEAU, integrado ao IEA, centraliza debates sobre Agricultura Urbana (AU) em São Paulo.</p>
                             <p>Coordenado pela Prof.ª Thais Mauad, o grupo promove uma visão holística. A "Horta da Faculdade de Medicina" (FMUSP), na laje, é exemplo prático de sustentabilidade, cultivada por professores, alunos, funcionários e voluntários.</p>
-                            <a href="https://jornal.usp.br/ciencias/hortas-comunitarias-resistem-a-urbanizacao-na-maior-metropole-do-brasil/" target="_blank" class="section-button">Conheça o Projeto da USP no jornal.usp.br</a>
+                            <a href="https://jornal.usp.br/ciencias/hortas-comunitarias-resistem-a-urbanizacao-na-maior-metropole-do-brasil/" target="_blank" class="section-button">Conheça o Projeto da USP no jornal.usp.br
+                                <svg class="button-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </a>
                         </div>
-                        <div class="usp-image">
+                        <div class="usp-image image-hover-border-grow image-zoom-on-hover">
                             <img src="assets/images/horta-fmusp.jpg" alt="Horta da Faculdade de Medicina da USP na laje">
                             <span class="image-caption">Horta da FMUSP: Produção orgânica no coração da cidade.</span>
                             <p class="image-detail">Iniciativa exemplar de sustentabilidade.</p>
@@ -296,8 +305,11 @@
                     <h3 class="pesquisa-title">Os Laços Invisíveis: Benefícios das Hortas</h3>
                     <div class="pesquisa-content">
                         <p>Hortas comunitárias cultivam <strong>conexões humanas e bem-estar psicológico</strong>. Pesquisa revela: <strong>Agradabilidade</strong>, <strong>Restauração</strong> e <strong>Pertencimento</strong>. Conexão com a natureza e interação social melhoram saúde física e mental, aliviando estresse.</p>
-                        <p>São territórios de saúde, sustentabilidade e laços afetivos, onde agroecologia e psicologia ambiental caminham juntas.</p>
-                        <a href="https://www.scielo.br/j/sdeb/a/r9YfdFWKTXcnYkFH7BqdLVz/" target="_blank" class="section-button">Leia a Pesquisa Completa no scielo.br</a>
+                        <a href="https://www.scielo.br/j/sdeb/a/r9YfdFWKTXcnYkFH7BqdLVz/" target="_blank" class="section-button">Leia a Pesquisa Completa no scielo.br
+                            <svg class="button-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -320,14 +332,14 @@
                 </div>
                 <div class="project-visual-tools">
                     <h3>Ferramentas Visuais Utilizadas</h3>
-                    <p>Nesta seção, destacamos as ferramentas utilizadas para a criação dos elementos visuais e placeholders do site. As imagens são exemplos do que seria produzido com essas plataformas.</p>
+                    <p>Nesta seção, destacamos as ferramentas utilizadas para a criação dos elementos visuais comos .svg e .ico, cortes de imagens, remoção de fundos e redimensionamento.</p>
                     <div class="tools-grid">
-                        <div class="tool-item">
+                        <div class="tool-item image-zoom-on-hover">
                             <img src="assets/images/tool-canva.png" alt="Logo Canva">
                             <h4>Canva</h4>
                             <p>Plataforma intuitiva para design gráfico e composição.</p>
                         </div>
-                        <div class="tool-item">
+                        <div class="tool-item image-zoom-on-hover">
                             <img src="assets/images/tool-gimp.png" alt="Logo GIMP">
                             <h4>GIMP</h4>
                             <p>Software de manipulação de imagens gratuito e de código aberto.</p>
@@ -339,17 +351,17 @@
             <div class="visual-gallery">
                 <h4>Galeria de Imagens do Projeto</h4>
                 <div class="gallery-container">
-                    <img src="assets/images/campo-main.jpg" alt="Duas colheitadeiras colhendo soja, representando a Agroeidam de Ortigueira, Paraná.">
-                    <img src="assets/images/hero-bg.jpg" alt="Fundo da Seção Hero">
-                    <img src="assets/images/campo-cultivo.jpg" alt="Mãos Cuidando de um Cultivo Sustentável">
-                    <img src="assets/images/campo-colheita.jpg" alt="Colheita Consciente: Frutos do Trabalho e Respeito à Terra">
-                    <img src="assets/images/robo-acai.png" alt="Robô Colhendo Açaí na Amazônia">
-                    <img src="assets/images/robo-morango.jpg" alt="Robô colhendo morangos">
-                    <img src="assets/images/cidade-luzes.jpg" alt="Horizonte da Cidade à Noite">
-                    <img src="assets/images/cidade-verde.jpg" alt="Parque Urbano com Pessoas">
-                    <img src="assets/images/cidade-cultura.jpg" alt="Edifícios Modernos e Arte Urbana">
-                    <img src="assets/images/horta-urbana.jpg" alt="Pessoas trabalhando em horta urbana comunitária">
-                    <img src="assets/images/horta-fmusp.jpg" alt="Horta da Faculdade de Medicina da USP na laje">
+                    <img class="image-zoom-on-hover" src="assets/images/campo-main.jpg" alt="Duas colheitadeiras colhendo soja, representando a Agroeidam de Ortigueira, Paraná.">
+                    <img class="image-zoom-on-hover" src="assets/images/hero-bg.jpg" alt="Fundo da Seção Hero">
+                    <img class="image-zoom-on-hover" src="assets/images/campo-cultivo.jpg" alt="Mãos Cuidando de um Cultivo Sustentável">
+                    <img class="image-zoom-on-hover" src="assets/images/campo-colheita.jpg" alt="Colheita Consciente: Frutos do Trabalho e Respeito à Terra">
+                    <img class="image-zoom-on-hover" src="assets/images/robo-acai.png" alt="Robô Colhendo Açaí na Amazônia">
+                    <img class="image-zoom-on-hover" src="assets/images/robo-morango.jpg" alt="Robô colhendo morangos">
+                    <img class="image-zoom-on-hover" src="assets/images/cidade-luzes.jpg" alt="Horizonte da Cidade à Noite">
+                    <img class="image-zoom-on-hover" src="assets/images/cidade-verde.jpg" alt="Parque Urbano com Pessoas">
+                    <img class="image-zoom-on-hover" src="assets/images/cidade-cultura.jpg" alt="Edifícios Modernos e Arte Urbana">
+                    <img class="image-zoom-on-hover" src="assets/images/horta-urbana.jpg" alt="Pessoas trabalhando em horta urbana comunitária">
+                    <img class="image-zoom-on-hover" src="assets/images/horta-fmusp.jpg" alt="Horta da Faculdade de Medicina da USP na laje">
                 </div>
             </div>
 
@@ -372,7 +384,7 @@
                     <p>Envie-nos uma mensagem sobre sua conexão com o campo e a cidade.</p>
                     <address>
                         E-mail: <a href="mailto:igor.daniel.ferreira@escola.pr.gov.br">igor.daniel.ferreira@escola.pr.gov.br</a><br>
-                        Telefone: (XX) XXXX-XXXX
+                        Telefone: (42) 9987-6302
                     </address>
                 </div>
                 <form class="contact-form">
@@ -384,7 +396,6 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Harmonia Natural. Projeto desenvolvido por um estudante do 3º ano do Ensino Médio para o Concurso Agrinho 2025.</p>
-                <!-- Ícone Favicon no rodapé -->
                 <img src="assets/icons/favicon.ico" alt="Logo Harmonia Natural" class="footer-logo-img">
             </div>
         </footer>
@@ -392,6 +403,5 @@
         <!-- Botão de Voltar ao Início -->
         <a href="#hero" class="back-to-top-button">↑</a>
     </div>
-
 </body>
 </html>
