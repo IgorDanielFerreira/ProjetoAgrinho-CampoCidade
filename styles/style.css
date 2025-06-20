@@ -15,7 +15,9 @@
     --cor-clara: #F9FAF4;      /* Off-white suave - Base mais natural */
     --cor-branca: #FFFFFF;     /* Branco - Text and elements */
     --cor-shadow: rgba(0, 0, 0, 0.25); /* Sombra genérica, um pouco mais escura */
-    --cor-overlay-dark: rgba(0, 54, 0, 0.7); /* Overlay mais escuro para contraste */
+    --cor-overlay-dark: rgba(0, 54, 0, 0.85); /* Overlay mais escuro para contraste */
+    --cor-overlay-light: rgba(0, 54, 0, 0.7); /* Overlay mais claro */
+
 
     --scrollbar-thumb-color: var(--cor-primaria);
     --scrollbar-track-color: var(--cor-primaria);
@@ -29,7 +31,6 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    transition: all 0.4s ease-in-out;
 }
 
 html {
@@ -277,16 +278,21 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     align-items: center;
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: headerShrink 1s linear forwards;
-    animation-timeline: scroll();
+    animation: headerScrollAnimation 1s linear forwards;
+    animation-timeline: scroll(root);
     animation-range: 0 200px;
 }
 
-@keyframes headerShrink {
+@keyframes headerScrollAnimation {
+    from {
+        background-color: var(--cor-primaria);
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
     to {
-        padding: 0.5rem 2rem;
         background-color: var(--cor-secundaria);
-        color: var(--cor-primaria);
+        padding: 0.5rem 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -307,15 +313,14 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     font-size: 2.2em;
     letter-spacing: 2px;
     color: var(--cor-branca);
-    animation: logoColorChange 1s linear forwards;
-    animation-timeline: scroll();
+    animation: logoColorScrollAnimation 1s linear forwards;
+    animation-timeline: scroll(root);
     animation-range: 0 200px;
 }
 
-@keyframes logoColorChange {
-    to {
-        color: var(--cor-primaria);
-    }
+@keyframes logoColorScrollAnimation {
+    from { color: var(--cor-branca); }
+    to { color: var(--cor-primaria); }
 }
 
 /* --- Menu Desktop --- */
@@ -342,15 +347,15 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     color: var(--cor-branca);
     position: relative;
     padding: 0.5em 0;
-    animation: linkColorChange 1s linear forwards;
-    animation-timeline: scroll();
+    transition: color 0.3s ease;
+    animation: linkColorScrollAnimation 1s linear forwards;
+    animation-timeline: scroll(root);
     animation-range: 0 200px;
 }
 
-@keyframes linkColorChange {
-    to {
-        color: var(--cor-primaria);
-    }
+@keyframes linkColorScrollAnimation {
+    from { color: var(--cor-branca); }
+    to { color: var(--cor-primaria); }
 }
 
 .main-nav .nav-links a::after {
@@ -361,7 +366,15 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     width: 0;
     height: 3px;
     background-color: var(--cor-secundaria);
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease;
+    animation: linkBarColorScrollAnimation 1s linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
+}
+
+@keyframes linkBarColorScrollAnimation {
+    from { background-color: var(--cor-secundaria); }
+    to { background-color: var(--cor-primaria); }
 }
 
 .main-nav .nav-links a:hover::after {
@@ -383,15 +396,14 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     background-color: var(--cor-branca);
     border-radius: 5px;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    animation: hamburgerColorChange 1s linear forwards;
-    animation-timeline: scroll();
+    animation: hamburgerColorScrollAnimation 1s linear forwards;
+    animation-timeline: scroll(root);
     animation-range: 0 200px;
 }
 
-@keyframes hamburgerColorChange {
-    to {
-        background-color: var(--cor-primaria);
-    }
+@keyframes hamburgerColorScrollAnimation {
+    from { background-color: var(--cor-branca); }
+    to { background-color: var(--cor-primaria); }
 }
 
 .nav-toggle-input {
@@ -628,15 +640,24 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     color: var(--cor-branca);
 }
 
+.image-effect-rotate:hover img {
+    transform: rotate(5deg) scale(1.3);
+    filter: grayscale(100%);
+    transform-origin: center center;
+}
 
 .image-effect-zoom:hover img {
     transform: scale(1.1);
     filter: brightness(0.8);
 }
 
-.image-effect-rotate:hover img {
-    transform: rotate(5deg) scale(1.05);
-    filter: grayscale(100%);
+
+.image-zoom-on-hover img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-zoom-on-hover:hover img {
+    transform: scale(1.03);
 }
 
 /* --- Revoluções Agrícolas --- */
@@ -653,6 +674,7 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     font-size: 2.5em;
     color: var(--cor-primaria);
     text-align: center;
+    margin-top: 1.5em;
     margin-bottom: 1.5em;
     border-bottom: 2px solid var(--cor-terciaria);
     display: inline-block;
@@ -818,6 +840,11 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: filter 0.3s ease-in-out;
+}
+
+.image-hover-glow:hover img {
+    filter: brightness(1.3) drop-shadow(0 0 25px rgba(255, 255, 255, 1));
 }
 
 .cidade-gallery .hover-overlay {
@@ -826,7 +853,7 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 54, 0, 0.85);
+    background-color: var(--cor-overlay-dark);
     color: var(--cor-branca);
     display: flex;
     flex-direction: column;
@@ -870,10 +897,13 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     font-size: 1.8em;
     border-radius: 10px;
     user-select: none;
-    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
     box-shadow: 0 5px 12px rgba(0,0,0,0.5);
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    display: none;
+    opacity: 0;
 }
 
 .cidade-gallery .nav-arrow:hover {
@@ -891,10 +921,27 @@ html:has(.skip-intro-checkbox:checked) #main-page-content {
     right: 20px;
 }
 
-input#img1:checked ~ .arrow-for-img1,
-input#img2:checked ~ .arrow-for-img2,
-input#img3:checked ~ .arrow-for-img3 {
-    display: block;
+.cidade-gallery input#img1:checked ~ .prev-arrow.arrow-for-img1,
+.cidade-gallery input#img1:checked ~ .next-arrow.arrow-for-img1 {
+    opacity: 1;
+    pointer-events: auto;
+}
+.cidade-gallery input#img2:checked ~ .prev-arrow.arrow-for-img2,
+.cidade-gallery input#img2:checked ~ .next-arrow.arrow-for-img2 {
+    opacity: 1;
+    pointer-events: auto;
+}
+.cidade-gallery input#img3:checked ~ .prev-arrow.arrow-for-img3,
+.cidade-gallery input#img3:checked ~ .next-arrow.arrow-for-img3 {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.cidade-gallery .nav-arrow {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .cidade-gallery input#img1:checked ~ .gallery-images { transform: translateX(0); }
@@ -908,7 +955,7 @@ input#img3:checked ~ .arrow-for-img3 {
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    z-index: 10;
+    z-index: 20;
     justify-content: center;
     align-items: center;
     padding: 0.5em 0;
@@ -1051,7 +1098,6 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     color: var(--cor-primaria);
 }
 
-/* Animação de conexão com pontos */
 .connection-animation {
     display: flex;
     justify-content: center;
@@ -1156,31 +1202,56 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
 
 .comunidade-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 8px 20px var(--cor-shadow);
-    object-fit: cover;
+    display: block;
 }
 
-.comunidade-image .image-caption {
-    font-size: 0.9em;
-    color: var(--cor-primaria);
+.image-hover-overlay-slide {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+.image-hover-overlay-slide .hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-overlay-dark);
+    color: var(--cor-branca);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    z-index: 10;
     text-align: center;
-    margin-top: 0.8em;
+    border-radius: 10px;
+}
+.image-hover-overlay-slide:hover .hover-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image-hover-overlay-slide .hover-overlay .image-caption {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
     font-style: italic;
+    color: var(--cor-branca);
+}
+.image-hover-overlay-slide .hover-overlay .image-detail {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: var(--cor-clara);
+    margin-bottom: 0;
 }
 
-.comunidade-image .image-detail {
-    font-size: 0.8em;
-    color: var(--cor-terciaria);
-    text-align: center;
-    margin-top: 0.5em;
-    line-height: 1.4;
-    font-style: normal;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* --- Sub-seção: Iniciativa USP --- */
 .usp-initiative {
@@ -1227,6 +1298,8 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
 .usp-image {
     padding: 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .usp-image img {
@@ -1244,6 +1317,27 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     text-align: center;
     margin-top: 0.5em;
     font-style: italic;
+}
+
+.image-hover-border-grow {
+    position: relative;
+    overflow: hidden;
+}
+.image-hover-border-grow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 2px solid var(--cor-terciaria);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.image-hover-border-grow:hover::before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
 }
 
 /* --- usp-additional-content --- */
@@ -1631,7 +1725,6 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     text-align: center;
 }
 
-/* Estilos para a imagem do favicon no rodapé */
 .footer-logo-img {
     width: 20px;
     height: 20px;
@@ -1639,7 +1732,6 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
 }
 
 
-/* --- Botão de Voltar ao Topo --- */
 .back-to-top-button {
     position: fixed;
     bottom: 30px;
@@ -1658,7 +1750,7 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     opacity: 0;
     pointer-events: none;
     animation: showHideButton 1s linear forwards;
-    animation-timeline: scroll();
+    animation-timeline: scroll(root);
     animation-range: 200px 500px;
 }
 
@@ -1668,7 +1760,7 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
 }
 
 .section-button {
-    display: inline-block;
+    display: inline-flex;
     background: linear-gradient(45deg, var(--cor-primaria), var(--cor-terciaria));
     color: var(--cor-branca);
     padding: 0.8em 1.5em;
@@ -1683,6 +1775,9 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     transition: all 0.3s ease;
     text-align: center;
     max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
 }
 
 .section-button:hover {
@@ -1691,4 +1786,14 @@ input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
     transform: translateY(-3px) scale(1.02);
     border-color: var(--cor-branca);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.button-arrow {
+    width: 1em;
+    height: 1em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.section-button:hover .button-arrow {
+    transform: translateX(5px);
 }
