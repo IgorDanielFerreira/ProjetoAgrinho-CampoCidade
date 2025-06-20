@@ -11,6 +11,13 @@ O principal objetivo do site é:
 -   **Promover a sustentabilidade:** Apresentar exemplos e iniciativas que fortalecem práticas sustentáveis em ambos os ambientes, como a agricultura de precisão e as hortas urbanas.
 -   **Engajar a comunidade:** Inspirar o público a se conectar mais com a origem dos alimentos e com o movimento de agricultura urbana, participando ativamente de iniciativas locais.
 
+## Detalhes da Interface e Interatividade
+
+Para uma navegação intuitiva e uma experiência visual dinâmica:
+
+-   O **Cabeçalho (Header)** inclui navegação principal e elementos visuais para fácil orientação.
+-   O **Rodapé (Footer)** apresenta uma simulação de formulário de contato por e-mail e informações importantes. **Importante:** Este formulário tem fins demonstrativos e não envia mensagens reais.
+
 ## Seções Principais
 
 O site é dividido nas seguintes seções, que abordam diferentes aspectos da conexão campo-cidade:
@@ -19,7 +26,7 @@ O site é dividido nas seguintes seções, que abordam diferentes aspectos da co
 -   **A Energia da Cidade:** Apresenta a cidade como centro de inovação, cultura e oportunidades, destacando seu dinamismo e as demandas que impulsionam o campo.
 -   **Pontes que Unem:** Demonstra as diversas formas de conexão e colaboração entre campo e cidade, incluindo a agricultura familiar, o ecoturismo rural e a inovação sustentável.
 -   **Comunidade em Ação:** Foca em iniciativas concretas de sucesso, como as hortas urbanas e o papel da USP na vanguarda da agricultura urbana, incluindo os benefícios simbólicos e afetivos dessas práticas.
--   **Sobre o Projeto & Recursos Visuais:** Detalhes sobre o autor, instituição, concurso e as ferramentas utilizadas na criação dos elementos visuais placeholder.
+-   **Sobre o Projeto & Recursos Visuais:** Detalhes sobre o autor, instituição, concurso e as ferramentas utilizadas na edição e criação dos elementos visuais.
 -   **Contato:** Seção para interação com os visitantes.
 
 ## Tecnologias Utilizadas
@@ -29,18 +36,9 @@ Este projeto foi construído utilizando tecnologias web fundamentais:
 -   **HTML5:** Para a estrutura e conteúdo da página.
 -   **CSS3:** Para o design, layout responsivo, animações e efeitos visuais.
 
-## Como Executar o Projeto
-
-Para visualizar o projeto, siga os passos simples:
-
-1.  **Baixe ou clone** este repositório para o seu computador.
-2.  **Abra o arquivo `index.html`** em qualquer navegador web moderno.
-
-Não é necessário nenhum servidor web ou configuração complexa.
-
 ## Contexto do Projeto
 
-Este site foi desenvolvido por **Igor Daniel Ferreira**, um estudante do Ensino Médio, para o **Concurso Agrinho 2025**, com o tema "Festejando a conexão campo cidade". Ele busca ser uma ferramenta educativa e inspiradora para estudantes e o público em geral, incentivando a reflexão sobre a importância dessa conexão para um futuro mais sustentável.
+Este site foi desenvolvido por **Igor Daniel Ferreira**, um estudante do 3º do Ensino Médio, para o **Concurso Agrinho 2025**, com o tema "Festejando a conexão campo cidade".
 
 ## Histórico de Versões (Releases)
 
@@ -82,7 +80,7 @@ Aqui você pode acompanhar as principais mudanças e melhorias em cada versão d
 -   **Melhoria:** Aumento e centralização do texto na seção "Agricultura de Precisão e o Robô Açaí" com informações adicionais para maior clareza.
 -   **Melhoria:** Ajustes finos nos estilos CSS para garantir que os títulos se adaptem melhor a telas mobile, evitando que "escapem" dos contêineres.
 -   **Melhoria:** Criação de uma nova seção "Sobre o Projeto & Recursos Visuais" com detalhes sobre o autor, instituição e propósito do projeto para o Concurso Agrinho 2025.
--   **Melhoria:** Detalhamento das ferramentas visuais utilizadas (Canva, GIMP) e inclusão de uma galeria com *todos os placeholders de imagens* do site para demonstração.
+-   **Melhoria:** Detalhamento das ferramentas visuais utilizadas e inclusão de uma galeria com *todos os placeholders de imagens* do site para demonstração.
 -   **Melhoria:** Ajuste da cor do texto forte nas informações do autor/projeto para um verde mais escuro, melhorando a visibilidade.
 -   **Melhoria:** Consolidação do texto geral do site para ser mais direto ao ponto e otimizado para leitura rápida.
 -   **Melhoria:** Atualização do texto do rodapé para refletir que o projeto foi desenvolvido por um estudante do Ensino Médio para o Concurso Agrinho 2025.
@@ -108,14 +106,14 @@ Este projeto foi desenvolvido por um **estudante do Ensino Médio** para o **Con
 
 ### Ferramentas Visuais Utilizadas
 
-Todas as imagens e elementos visuais no site são **placeholders** (elementos temporários para demonstração) criados para ilustrar o conteúdo visual que seria desenvolvido. As ferramentas utilizadas para a criação e edição desses elementos foram:
+As ferramentas utilizadas para a criação e edição das imagens foram:(exceto as que não são de autoria do autor, você pode saber mais na seção "Créditos de Imagens e Atribuições" no site)
 
 -   **Canva:** Plataforma intuitiva para design gráfico e composição de elementos.
 -   **GIMP:** Software de manipulação de imagens gratuito e de código aberto para ajustes detalhados.
 
-### Galeria de Imagens do Projeto (Placeholders)
+## Projeto Na Vercel
+https://projeto-agrinho-campo-cidade-phi.vercel.app
+## Projeto no Git Hub
+https://igordanielferreira.github.io/ProjetoAgrinho-CampoCidade/
 
-Apresentamos a seguir uma galeria com imagens placeholder utilizadas em todo o site para demonstração do design e tipo de arte pensados para o projeto.
-
----
 *Desenvolvido com paixão por um estudante do Ensino Médio para o Concurso Agrinho 2025.*
