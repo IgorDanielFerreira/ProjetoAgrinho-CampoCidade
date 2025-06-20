@@ -46,11 +46,20 @@ Este site foi desenvolvido por **Igor Daniel Ferreira**, um estudante do Ensino 
 
 Aqui você pode acompanhar as principais mudanças e melhorias em cada versão do projeto.
 
+### Versão 1.4.0 - 20 de junho de 2025
+
+-   **Melhoria:** Removido transition do container principal da intro.
+-   **Melhoria:** Adaptado o responsive.css para mais adaptabilidade em disposivos como tablets e celulares.
+-   **Melhoria:** Colocado animações em todas as imagens da página.
+-   **Melhoria:** Animação de hover na lista do header arrumado após mudar de cor.
+-   **Melhoria:** Alterações no hover na seção Alma Do Campo.
+-   **Melhoria:** Dados restantes como contato adicionados.
+
 ### Versão 1.3.0 - 20 de Junho de 2025
 
--   **Melhoria:** Novas imagens adicionadas para o projeto
--   **Melhoria:** Adaptação maior para mobile concertos de responsividade
--   **Escalabiliadade:** A quebra de style.css para responsive.css para separar o estilo bruto dos media queries para maior escalabilidade do projeto
+-   **Melhoria:** Novas imagens adicionadas para o projeto.
+-   **Melhoria:** Adaptação maior para mobile concertos de responsividade.
+-   **Escalabiliadade:** A quebra de style.css para responsive.css para separar o estilo bruto dos media queries para maior escalabilidade do projeto.
 -   **Funcionalidade:** Implementação de `display: none` inicial para o conteúdo da página principal (`#main-page-content`), que é revelado via CSS puro (sem JavaScript) ao clicar no botão "Entrar no Site".
 -   **Melhoria Visual:** A barra de rolagem agora está camuflada em verde escuro (`--cor-primaria`) inicialmente e muda para uma cor visível (`--cor-secundaria`) via CSS puro quando o conteúdo principal da página é revelado.
 -   **Usabilidade:** Os botões de navegação do carrossel (`.nav-arrow`) na seção "A Energia da Cidade" foram redimensionados e reposicionados para a parte inferior do contêiner da imagem, evitando que obstruam o texto ao passar o mouse.
