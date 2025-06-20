@@ -1,5 +1,18 @@
 /* --- Media Queries --- */
 
+.nav-toggle-input:not(:checked) + .nav-toggle-label .hamburger:nth-child(1) {
+    transform: none;
+    opacity: 1;
+}
+.nav-toggle-input:not(:checked) + .nav-toggle-label .hamburger:nth-child(2) {
+    opacity: 1;
+}
+.nav-toggle-input:not(:checked) + .nav-toggle-label .hamburger:nth-child(3) {
+    transform: none;
+    opacity: 1;
+}
+
+
 .nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -10,9 +23,13 @@
     transform: translateY(-9px) rotate(-45deg);
 }
 
-@media screen and (max-width: 1150px) {
+
+/* --- Breakpoint para telas até 1150px --- */
+
+@media screen and (max-width: 1200px) {
     h1 { font-size: 3em; }
     h2 { font-size: 2.2em; }
+    p { font-size: 1em; }
 
     #main-header .logo a {
         display: none;
@@ -143,6 +160,34 @@
         font-size: 1.1em;
     }
 }
+
+@media  screen and (max-width: 890px) {
+    #main-header .logo a {
+        display: block;
+    }
+
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .main-nav {
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-primaria);
+        padding: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        align-items: center;
+        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+    }
+}
+
+/* --- Breakpoint para telas até 768px  --- */
 
 @media screen and (max-width: 768px) {
     .nav-toggle-label {
@@ -345,11 +390,7 @@
     }
 }
 
-@media screen and (max-width: 768px) and (cursor: none) {
-    .helper-cidade {
-        display: block;
-    }
-}
+/* --- Breakpoint para telas até 660px --- */
 
 @media screen and (max-width: 660px) {
     .footer-content {
@@ -361,7 +402,7 @@
     .footer-info, .contact-form {
         max-width: 90%;
         text-align: center;
-        flex: 1 1 40px;
+        flex: 1 1 auto;
     }
 
     .helper-cidade {
@@ -369,6 +410,7 @@
     }
 }
 
+/* --- Breakpoint para telas até 480px --- */
 
 @media screen and (max-width: 480px) {
     .intro-title {
@@ -430,7 +472,7 @@
         height: 300px;
     }
     .cidade-gallery input#img1:checked ~ .gallery-nav .nav-dot:nth-child(1), input#img2:checked ~ .gallery-nav .nav-dot:nth-child(2), input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
-        transform: scale(0.8);
+        transform: (0.8);
     }
 
     .conexao-card {
@@ -515,11 +557,39 @@
         padding: 0.5em 1em;
     }
 
-    .helper-cidade {
-        display: block;
-    }
-
     .cidade-text-block h3 {
         font-size: 1.5em;
     }
+}
+
+@media  screen and (max-width: 400px) {
+    #main-header .logo a {
+        display: none;
+    }
+    .intro-title {
+        font-size: 2.5em;
+    }
+    .intro-subtitle {
+        font-size: 1.1em;
+    }
+    .intro-message {
+        font-size: 0.8em;
+    }
+    .intro-line {
+        width: 100px;
+        margin: 0.6em auto;
+    }
+    .skip-intro-button {
+        font-size: 0.7em;
+        padding: 6px 14px;
+        bottom: 10vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 0.8em;
+    }
+    
 }
