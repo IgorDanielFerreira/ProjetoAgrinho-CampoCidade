@@ -1,0 +1,525 @@
+/* --- Media Queries --- */
+
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle-input:checked + .nav-toggle-label .hamburger:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media screen and (max-width: 1150px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+
+    #main-header .logo a {
+        display: none;
+    }
+
+    #main-header .header-logo-img {
+        height: 50px;
+        width: auto;
+    }
+
+    .main-nav .nav-links {
+        gap: 1.5rem;
+    }
+
+    .campo-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .campo-main-image {
+        grid-column: 1 / 2;
+        height: 300px;
+    }
+    .campo-text-block {
+        text-align: center;
+    }
+    .campo-sub-image {
+        height: 200px;
+    }
+
+    .revolucao-content-grid,
+    .comunidade-grid,
+    .usp-content-grid,
+    .about-project-section .project-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .revolucao-content-grid .revolucao-text,
+    .revolucao-content-grid .revolucao-image,
+    .usp-content-grid .usp-text,
+    .usp-content-grid .usp-image {
+        width: 100%;
+    }
+
+
+    .cidade-layout {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    .cidade-gallery {
+        height: 350px;
+    }
+
+    .conexao-info {
+        gap: 1.5rem;
+    }
+    .conexao-card {
+        flex: 1 1 280px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    .footer-info, .contact-form {
+        max-width: 45%;
+        text-align: left;
+    }
+
+    .hero-content {
+        padding: 2.5rem 3rem;
+    }
+    .hero-content h1 {
+        font-size: 4.5em;
+    }
+    .hero-content p {
+        font-size: 1.5em;
+    }
+    .hero-button {
+        font-size: 1.2em;
+        padding: 0.9em 2.5em;
+    }
+    .about-project-section .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .about-project-section .tool-item {
+        flex: 1 1 150px;
+    }
+
+    .section-button {
+        font-size: 0.9em;
+        padding: 0.7em 1.2em;
+    }
+
+    .footer-info h3 {
+        font-size: 2em;
+    }
+    .footer-info p, .footer-info address {
+        font-size: 1.1em;
+    }
+
+    .image-credits-section h4 {
+        font-size: 1.6em;
+    }
+    .image-credits-section p {
+        font-size: 1em;
+    }
+
+    .cidade-gallery .gallery-images {
+        height: calc(100% - 60px);
+    }
+
+    .cidade-gallery .nav-arrow {
+        font-size: 1.8em;
+        padding: 0.4em 0.6em;
+    }
+
+    .cidade-gallery .gallery-footer-text {
+        font-size: 1em;
+    }
+
+    .cidade-text-block h3 {
+        font-size: 2em;
+    }
+    .cidade-text-block p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .main-nav {
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-primaria);
+        padding: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        align-items: center;
+        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+    }
+
+    .nav-toggle-input:checked ~ .main-nav {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+        padding: 1rem 0;
+    }
+
+    .main-nav .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav .nav-links a {
+        padding: 0.8em 0;
+        font-size: 1.2em;
+        border-radius: 0;
+        color: var(--cor-branca);
+        animation: none;
+        animation-timeline: unset;
+    }
+    .main-nav .nav-links a::after {
+        display: none;
+    }
+    .main-nav .nav-links a:hover {
+        background-color: var(--cor-secundaria);
+        color: var(--cor-primaria);
+        transform: none;
+    }
+
+    .intro-title {
+        font-size: 3.5em;
+        letter-spacing: 3px;
+    }
+    .intro-subtitle {
+        font-size: 1.6em;
+    }
+    .intro-message {
+        font-size: 1.1em;
+        max-width: 90%;
+    }
+    .intro-line {
+        width: 180px;
+    }
+    .skip-intro-button {
+        bottom: 15vh;
+        font-size: 1em;
+        padding: 10px 22px;
+    }
+
+    .hero-content {
+        padding: 1.5rem 1.5rem;
+    }
+    .hero-content h1 {
+        font-size: 3em;
+        letter-spacing: 2px;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+        max-width: 90%;
+    }
+    .hero-button {
+        font-size: 1em;
+        padding: 0.7em 1.8em;
+    }
+
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    p { font-size: 0.95em; }
+
+    .content-section {
+        padding: 3rem 1rem;
+    }
+
+    .contact-form {
+        padding: 0 0.5rem;
+    }
+    .footer-info {
+        padding: 0 0.5rem;
+    }
+
+    .back-to-top-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.8em;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
+        font-size: 1.6em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        max-width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+        word-break: break-word;
+    }
+    .usp-title {
+        font-size: 1.4em;
+    }
+    .revolucoes-agricolas h4, .usp-additional-content h4, .comunidade-text h3, .pesquisa-afetiva h3 {
+        font-size: 1.4em;
+        word-break: break-word;
+    }
+
+    .revolucao-content-grid,
+    .comunidade-grid,
+    .usp-content-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .revolucao-content-grid .revolucao-text,
+    .revolucao-content-grid .revolucao-image,
+    .usp-content-grid .usp-text,
+    .usp-content-grid .usp-image {
+        width: 100%;
+        padding: 0;
+    }
+    .usp-additional-content {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .about-project-section .tool-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .about-project-section .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .section-button {
+        font-size: 0.8em;
+        padding: 0.5em 0.8em;
+    }
+
+    .footer-info h3 {
+        font-size: 1.8em;
+    }
+    .footer-info p, .footer-info address {
+        font-size: 1em;
+    }
+    .image-credits-section h4 {
+        font-size: 1.4em;
+    }
+    .image-credits-section p {
+        font-size: 0.95em;
+    }
+    .image-credits-section ul li {
+        font-size: 0.9em;
+    }
+
+    .cidade-gallery .nav-arrow {
+        font-size: 1.5em;
+        padding: 0.3em 0.5em;
+    }
+
+    .cidade-gallery .hover-overlay h3 {
+        font-size: 1.6em;
+    }
+
+    .cidade-gallery .hover-overlay p {
+        font-size: 0.9em;
+    }
+
+    .cidade-gallery .gallery-footer-text {
+        font-size: 0.9em;
+    }
+
+    .cidade-text-block h3 {
+        font-size: 1.8em;
+    }
+    .cidade-text-block p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) and (cursor: none) {
+    .helper-cidade {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .footer-content {
+        flex-direction: column;
+        max-width: 100%;
+        align-items: center;
+        gap: 2rem;
+    }
+    .footer-info, .contact-form {
+        max-width: 90%;
+        text-align: center;
+        flex: 1 1 40px;
+    }
+
+    .helper-cidade {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .intro-title {
+        font-size: 2.8em;
+        letter-spacing: 1px;
+    }
+    .intro-subtitle {
+        font-size: 1.2em;
+    }
+    .intro-message {
+        font-size: 0.9em;
+    }
+    .intro-line {
+        width: 120px;
+        margin: 0.8em auto;
+    }
+    .skip-intro-button {
+        font-size: 0.8em;
+        padding: 8px 18px;
+        bottom: 12vh;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .hero-button {
+        font-size: 0.9em;
+        padding: 0.6em 1.5em;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.6em; }
+    p { font-size: 0.9em; }
+
+    .campo-main-image {
+        height: 200px;
+    }
+    .campo-main-image .image-overlay {
+        padding: 0.8em;
+    }
+    .campo-main-image .image-overlay h3 {
+        font-size: 1.3em;
+    }
+
+    .campo-sub-image {
+        height: 120px;
+    }
+    .campo-sub-image .image-caption {
+        font-size: 0.8em;
+    }
+
+    .cidade-gallery {
+        height: 300px;
+    }
+    .cidade-gallery input#img1:checked ~ .gallery-nav .nav-dot:nth-child(1), input#img2:checked ~ .gallery-nav .nav-dot:nth-child(2), input#img3:checked ~ .gallery-nav .nav-dot:nth-child(3) {
+        transform: scale(0.8);
+    }
+
+    .conexao-card {
+        padding: 1rem;
+    }
+    .conexao-card .card-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .conexao-card h3 {
+        font-size: 1.5em;
+    }
+    .conexao-card p {
+        font-size: 0.8em;
+    }
+
+    .footer-content {
+        gap: 1rem;
+    }
+
+    .section-title, .usp-title, .revolucoes-title, .pesquisa-title {
+        font-size: 1.3em;
+    }
+    .usp-title {
+        font-size: 1.2em;
+    }
+    .pesquisa-afetiva {
+        padding: 1rem;
+    }
+    .usp-initiative {
+        padding: 1rem;
+    }
+
+    .revolucoes-agricolas {
+        padding: 1rem;
+    }
+    .revolucao-acai-text p, .revolucao-morango-text p {
+        font-size: 1em;
+    }
+    .about-project-section .tool-item h3 {
+        font-size: 1.1em;
+    }
+    .about-project-section .visual-gallery h4 {
+        font-size: 1.4em;
+    }
+    .section-button {
+        font-size: 0.7em;
+        padding: 0.4em 0.7em;
+    }
+
+    .footer-info h3 {
+        font-size: 1.5em;
+    }
+    .footer-info p, .footer-info address {
+        font-size: 0.9em;
+    }
+    .image-credits-section h4 {
+        font-size: 1.2em;
+    }
+    .image-credits-section p {
+        font-size: 0.9em;
+    }
+    .image-credits-section ul li {
+        font-size: 0.85em;
+    }
+
+    .cidade-gallery .nav-arrow {
+        font-size: 1.2em;
+        padding: 0.2em 0.4em;
+    }
+
+    .cidade-gallery .hover-overlay h3 {
+        font-size: 1.3em;
+    }
+
+    .cidade-gallery .hover-overlay p {
+        font-size: 0.8em;
+    }
+
+    .cidade-gallery .gallery-footer-text {
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+    }
+
+    .helper-cidade {
+        display: block;
+    }
+
+    .cidade-text-block h3 {
+        font-size: 1.5em;
+    }
+}
