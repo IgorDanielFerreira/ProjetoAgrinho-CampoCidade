@@ -20,7 +20,6 @@ O site é dividido nas seguintes seções, que abordam diferentes aspectos da co
 -   **Pontes que Unem:** Demonstra as diversas formas de conexão e colaboração entre campo e cidade, incluindo a agricultura familiar, o ecoturismo rural e a inovação sustentável.
 -   **Comunidade em Ação:** Foca em iniciativas concretas de sucesso, como as hortas urbanas e o papel da USP na vanguarda da agricultura urbana, incluindo os benefícios simbólicos e afetivos dessas práticas.
 -   **Sobre o Projeto & Recursos Visuais:** Detalhes sobre o autor, instituição, concurso e as ferramentas utilizadas na criação dos elementos visuais placeholder.
--   **Fontes de Informação:** Lista das referências e pesquisas utilizadas para embasar o conteúdo.
 -   **Contato:** Seção para interação com os visitantes.
 
 ## Tecnologias Utilizadas
@@ -47,6 +46,15 @@ Este site foi desenvolvido por **Igor Daniel Ferreira**, um estudante do Ensino 
 
 Aqui você pode acompanhar as principais mudanças e melhorias em cada versão do projeto.
 
+### Versão 1.3.0 - 20 de Junho de 2025
+
+-   **Melhoria:** Novas imagens adicionadas para o projeto
+-   **Melhoria:** Adaptação maior para mobile concertos de responsividade
+-   **Escalabiliadade:** A quebra de style.css para responsive.css para separar o estilo bruto dos media queries para maior escalabilidade do projeto
+-   **Funcionalidade:** Implementação de `display: none` inicial para o conteúdo da página principal (`#main-page-content`), que é revelado via CSS puro (sem JavaScript) ao clicar no botão "Entrar no Site".
+-   **Melhoria Visual:** A barra de rolagem agora está camuflada em verde escuro (`--cor-primaria`) inicialmente e muda para uma cor visível (`--cor-secundaria`) via CSS puro quando o conteúdo principal da página é revelado.
+-   **Usabilidade:** Os botões de navegação do carrossel (`.nav-arrow`) na seção "A Energia da Cidade" foram redimensionados e reposicionados para a parte inferior do contêiner da imagem, evitando que obstruam o texto ao passar o mouse.
+
 ### Versão 1.2.0 - 19 de Junho de 2025
 
 -   **Melhoria:** Ícone principal da página adicionado no header e no footer e também svgs da seção "Pontos Que Unem".
@@ -58,7 +66,7 @@ Aqui você pode acompanhar as principais mudanças e melhorias em cada versão d
 -   **Hotfix:** Substituição de formatação Markdown `**texto**` por tags HTML `<strong>texto</strong>` para garantir renderização consistente e correta do negrito.
 -   **Hotfix:** Implementação de JavaScript para garantir que o scroll da página seja resetado para o topo e mantido durante e após a animação de introdução, desativando a restauração automática do scroll do navegador.
 -   **Hotfix:** Ajustes no CSS para garantir que a `intro-animation-container` cubra totalmente a tela, mesmo com zoom, evitando que o fundo do site seja visível antes da transição completa.
--   **melhoria:** Botões de links redirecionáveis na seção de "Comunidade em Ação: Hortas Urbanas" e a remoção de das "Fontes de informação".
+-   **Melhoria:** Botões de links redirecionáveis na seção de "Comunidade em Ação: Hortas Urbanas" e a remoção de das "Fontes de informação".
 
 ### Versão 1.1.5 - 18 de Junho de 2025
 
